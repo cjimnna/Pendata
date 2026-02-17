@@ -2,8 +2,8 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: Penambangan Data
-author: Dini Restanti A.
-logo: logo.png
+author: Dini Restanti Artamulya
+logo: img.jpg
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
