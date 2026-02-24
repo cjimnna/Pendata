@@ -4,5 +4,6 @@
 format: jb-book
 root: intro
 chapters:
+- file: data-mining
 - file: memahami-data
 - file: data_understanding
