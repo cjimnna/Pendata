@@ -179,7 +179,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l1"><a class="reference internal" href="data_understanding.html"><strong>Data Understanding</strong></a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Mengukur Jarak (Similarity &amp; Dissimilarity)</strong></a></li>
-
 </ul>
 
     </div>
@@ -375,7 +374,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Mengukur Jarak (Similarity &amp; Dissimilarity)</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konsep-dasar">1. Konsep Dasar</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#similarity">1.1 Similarity</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dissimilarity-distance">1.2 Dissimilarity (Distance)</a></li>
@@ -410,33 +408,30 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-campuran-mixed-data">5. Atribut Campuran (Mixed Data)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cosine-similarity">6. Cosine Similarity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-data-campuran-mixed-data">2. Implementasi Data Campuran (Mixed Data)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-umum-dataset">2.1 Deskripsi Umum Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-dataset">2.2 Atribut Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-jenis-data">2.3 Klasifikasi Jenis Data</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-data-campuran-mixed-data">2. Implementasi Data Campuran (Mixed Data)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-umum-dataset">2.1 Deskripsi Umum Dataset</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-dataset">2.2 Atribut Dataset</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-jenis-data">2.3 Klasifikasi Jenis Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-data-numerik">A. Data Numerik</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-data-ordinal">B. Data Ordinal</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-data-kategorikal-nominal">C. Data Kategorikal (Nominal)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-data-biner">D. Data Biner</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-transformasi-data">2.4 Tahapan Transformasi Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-manual-euclidean-distance">2.5 Perhitungan Manual Euclidean Distance</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-yang-digunakan">Atribut yang digunakan:</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-data-biner">D. Data Biner</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-transformasi-data">2.4 Tahapan Transformasi Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-manual-euclidean-distance">2.5 Perhitungan Manual Euclidean Distance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-yang-digunakan">Atribut yang digunakan:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-nilai-minimum-maksimum">1. Menentukan Nilai Minimum &amp; Maksimum</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-min-max">2. Normalisasi Min-Max</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-selisih">3. Hitung Selisih</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kuadratkan-dan-jumlahkan">4. Kuadratkan dan Jumlahkan</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#akar-kuadrat">5. Akar Kuadrat</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-manhattan-distance">2.6 Perhitungan Manhattan Distance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-hasil">2.7 Perbandingan Hasil</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-manhattan-distance">2.6 Perhitungan Manhattan Distance</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-hasil">2.7 Perbandingan Hasil</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-menggunakan-orange">3. Implementasi Menggunakan Orange</a></li>
 </ul>
-</li>
-</ul>
-
             </nav>
         </div>
     </div>
@@ -705,11 +700,10 @@ d(i,j) = \frac{\sum_{f=1}^{p} w_f \, d_{if}}{\sum_{f=1}^{p} w_f}
 Nilai mendekati 0 → tidak mirip</p>
 <p>Cosine mengukur sudut antar vektor, bukan jarak absolut.</p>
 </section>
-</section>
 <section id="implementasi-data-campuran-mixed-data">
-<h1>2. Implementasi Data Campuran (Mixed Data)<a class="headerlink" href="#implementasi-data-campuran-mixed-data" title="Permalink to this heading">#</a></h1>
+<h2>2. Implementasi Data Campuran (Mixed Data)<a class="headerlink" href="#implementasi-data-campuran-mixed-data" title="Permalink to this heading">#</a></h2>
 <section id="deskripsi-umum-dataset">
-<h2>2.1 Deskripsi Umum Dataset<a class="headerlink" href="#deskripsi-umum-dataset" title="Permalink to this heading">#</a></h2>
+<h3>2.1 Deskripsi Umum Dataset<a class="headerlink" href="#deskripsi-umum-dataset" title="Permalink to this heading">#</a></h3>
 <p>Dataset yang digunakan adalah <strong>Student Performance Dataset</strong> yang diambil dari Kaggle. Dataset ini berisi informasi mengenai performa akademik siswa berdasarkan faktor demografis dan latar belakang keluarga.</p>
 <p><strong>Karakteristik dataset:</strong></p>
 <ul class="simple">
@@ -731,7 +725,7 @@ Nilai mendekati 0 → tidak mirip</p>
 </section>
 <hr class="docutils" />
 <section id="atribut-dataset">
-<h2>2.2 Atribut Dataset<a class="headerlink" href="#atribut-dataset" title="Permalink to this heading">#</a></h2>
+<h3>2.2 Atribut Dataset<a class="headerlink" href="#atribut-dataset" title="Permalink to this heading">#</a></h3>
 <p>Berikut atribut yang digunakan:</p>
 <ol class="arabic simple">
 <li><p>gender</p></li>
@@ -748,7 +742,8 @@ Nilai mendekati 0 → tidak mirip</p>
 </section>
 <hr class="docutils" />
 <section id="klasifikasi-jenis-data">
-<h2>2.3 Klasifikasi Jenis Data<a class="headerlink" href="#klasifikasi-jenis-data" title="Permalink to this heading">#</a></h2>
+<h3>2.3 Klasifikasi Jenis Data<a class="headerlink" href="#klasifikasi-jenis-data" title="Permalink to this heading">#</a></h3>
+</section>
 </section>
 <section id="a-data-numerik">
 <h2>A. Data Numerik<a class="headerlink" href="#a-data-numerik" title="Permalink to this heading">#</a></h2>
@@ -806,10 +801,9 @@ Kategori nilai matematika:</p></li>
 <p><strong>Transformasi menjadi angka:</strong></p>
 <p>male = 0, female = 1
 none = 0, completed = 1</p>
-</section>
 <hr class="docutils" />
 <section id="tahapan-transformasi-data">
-<h2>2.4 Tahapan Transformasi Data<a class="headerlink" href="#tahapan-transformasi-data" title="Permalink to this heading">#</a></h2>
+<h3>2.4 Tahapan Transformasi Data<a class="headerlink" href="#tahapan-transformasi-data" title="Permalink to this heading">#</a></h3>
 <p>Sebelum menghitung jarak:</p>
 <ol class="arabic simple">
 <li><p>Data biner → diubah menjadi 0 dan 1</p></li>
@@ -820,10 +814,10 @@ none = 0, completed = 1</p>
 </section>
 <hr class="docutils" />
 <section id="perhitungan-manual-euclidean-distance">
-<h2>2.5 Perhitungan Manual Euclidean Distance<a class="headerlink" href="#perhitungan-manual-euclidean-distance" title="Permalink to this heading">#</a></h2>
+<h3>2.5 Perhitungan Manual Euclidean Distance<a class="headerlink" href="#perhitungan-manual-euclidean-distance" title="Permalink to this heading">#</a></h3>
 </section>
 <section id="atribut-yang-digunakan">
-<h2>Atribut yang digunakan:<a class="headerlink" href="#atribut-yang-digunakan" title="Permalink to this heading">#</a></h2>
+<h3>Atribut yang digunakan:<a class="headerlink" href="#atribut-yang-digunakan" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>math score</p></li>
 <li><p>reading score</p></li>
@@ -831,6 +825,7 @@ none = 0, completed = 1</p>
 <li><p>education_level_ordinal</p></li>
 <li><p>gender</p></li>
 </ul>
+</section>
 <section id="menentukan-nilai-minimum-maksimum">
 <h3>1. Menentukan Nilai Minimum &amp; Maksimum<a class="headerlink" href="#menentukan-nilai-minimum-maksimum" title="Permalink to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="colwidths-auto table">
@@ -919,10 +914,9 @@ d = \sqrt{1.2129} \approx 1.10
 <div><p>Jadi jarak Euclidean setelah normalisasi = <strong>1.10</strong></p>
 </div></blockquote>
 </section>
-</section>
 <hr class="docutils" />
 <section id="perhitungan-manhattan-distance">
-<h2>2.6 Perhitungan Manhattan Distance<a class="headerlink" href="#perhitungan-manhattan-distance" title="Permalink to this heading">#</a></h2>
+<h3>2.6 Perhitungan Manhattan Distance<a class="headerlink" href="#perhitungan-manhattan-distance" title="Permalink to this heading">#</a></h3>
 <p>Rumus:</p>
 <p>[
 d = \sum |x_i - y_i|
@@ -932,7 +926,7 @@ d = \sum |x_i - y_i|
 </section>
 <hr class="docutils" />
 <section id="perbandingan-hasil">
-<h2>2.7 Perbandingan Hasil<a class="headerlink" href="#perbandingan-hasil" title="Permalink to this heading">#</a></h2>
+<h3>2.7 Perbandingan Hasil<a class="headerlink" href="#perbandingan-hasil" title="Permalink to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Metode</p></th>
@@ -952,6 +946,7 @@ d = \sum |x_i - y_i|
 <blockquote>
 <div><p>Perbedaan terjadi karena Euclidean mengkuadratkan selisih, sedangkan Manhattan hanya menjumlahkan selisih absolut.</p>
 </div></blockquote>
+</section>
 </section>
 <hr class="docutils" />
 <section id="implementasi-menggunakan-orange">
@@ -1018,15 +1013,16 @@ Orange menghasilkan matriks jarak berukuran 1000 × 1000, menunjukkan jarak seti
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting gower
-  Using cached gower-0.1.2-py3-none-any.whl.metadata (3.7 kB)
-Collecting seaborn
-  Using cached seaborn-0.13.2-py3-none-any.whl.metadata (5.4 kB)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[notice] A new release of pip is available: 25.0.1 -&gt; 26.0.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: gower in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (0.1.2)
+Requirement already satisfied: seaborn in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (0.13.2)
 Requirement already satisfied: numpy in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from gower) (2.4.2)
 Requirement already satisfied: scipy in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from gower) (1.17.1)
 Requirement already satisfied: pandas&gt;=1.2 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from seaborn) (3.0.1)
-Collecting matplotlib!=3.6.1,&gt;=3.4 (from seaborn)
-  Using cached matplotlib-3.10.8-cp312-cp312-win_amd64.whl.metadata (52 kB)
+Requirement already satisfied: matplotlib!=3.6.1,&gt;=3.4 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from seaborn) (3.10.8)
 Requirement already satisfied: contourpy&gt;=1.0.1 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (1.3.3)
 Requirement already satisfied: cycler&gt;=0.10 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (0.12.1)
 Requirement already satisfied: fonttools&gt;=4.22.0 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (4.61.1)
@@ -1037,101 +1033,18 @@ Requirement already satisfied: pyparsing&gt;=3 in c:\users\dini\appdata\local\pr
 Requirement already satisfied: python-dateutil&gt;=2.7 in c:\users\dini\appdata\roaming\python\python312\site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (2.9.0.post0)
 Requirement already satisfied: tzdata in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from pandas&gt;=1.2-&gt;seaborn) (2025.3)
 Requirement already satisfied: six&gt;=1.5 in c:\users\dini\appdata\roaming\python\python312\site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (1.16.0)
-Using cached gower-0.1.2-py3-none-any.whl (5.2 kB)
-Using cached seaborn-0.13.2-py3-none-any.whl (294 kB)
-Using cached matplotlib-3.10.8-cp312-cp312-win_amd64.whl (8.1 MB)
-Installing collected packages: matplotlib, gower, seaborn
-Successfully installed gower-0.1.2 matplotlib-3.10.8 seaborn-0.13.2
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[notice] A new release of pip is available: 25.0.1 -&gt; 26.0.1
-[notice] To update, run: python.exe -m pip install --upgrade pip
 </pre></div>
 </div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">gower</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">files</span>
+<span class="ne">----&gt; </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">files</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">uploaded</span> <span class="o">=</span> <span class="n">files</span><span class="o">.</span><span class="n">upload</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">filename</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">uploaded</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python312</span>\<span class="n">Lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">seaborn</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Import seaborn objects</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">.rcmod</span> <span class="kn">import</span> <span class="o">*</span>  <span class="c1"># noqa: F401,F403</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="o">*</span>  <span class="c1"># noqa: F401,F403</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">.palettes</span> <span class="kn">import</span> <span class="o">*</span>  <span class="c1"># noqa: F401,F403</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python312</span>\<span class="n">Lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">seaborn</span>\<span class="n">rcmod</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">cycler</span> <span class="kn">import</span> <span class="n">cycler</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">palettes</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;set_theme&quot;</span><span class="p">,</span> <span class="s2">&quot;set&quot;</span><span class="p">,</span> <span class="s2">&quot;reset_defaults&quot;</span><span class="p">,</span> <span class="s2">&quot;reset_orig&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span>            <span class="s2">&quot;axes_style&quot;</span><span class="p">,</span> <span class="s2">&quot;set_style&quot;</span><span class="p">,</span> <span class="s2">&quot;plotting_context&quot;</span><span class="p">,</span> <span class="s2">&quot;set_context&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span>            <span class="s2">&quot;set_palette&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">_style_keys</span> <span class="o">=</span> <span class="p">[</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> 
-<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="s2">&quot;axes.facecolor&quot;</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">50</span> 
-<span class="g g-Whitespace">     </span><span class="mi">51</span> <span class="p">]</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python312</span>\<span class="n">Lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">seaborn</span>\<span class="n">palettes</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">9</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">.external</span> <span class="kn">import</span> <span class="n">husl</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">desaturate</span><span class="p">,</span> <span class="n">get_color_cycle</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span> <span class="nn">.colors</span> <span class="kn">import</span> <span class="n">xkcd_rgb</span><span class="p">,</span> <span class="n">crayons</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">._compat</span> <span class="kn">import</span> <span class="n">get_colormap</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python312</span>\<span class="n">Lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">seaborn</span>\<span class="n">utils</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">19</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="kn">from</span> <span class="nn">seaborn._core.typing</span> <span class="kn">import</span> <span class="n">deprecated</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="kn">from</span> <span class="nn">seaborn.external.version</span> <span class="kn">import</span> <span class="n">Version</span>
-<span class="ne">---&gt; </span><span class="mi">19</span> <span class="kn">from</span> <span class="nn">seaborn.external.appdirs</span> <span class="kn">import</span> <span class="n">user_cache_dir</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;desaturate&quot;</span><span class="p">,</span> <span class="s2">&quot;saturate&quot;</span><span class="p">,</span> <span class="s2">&quot;set_hls_values&quot;</span><span class="p">,</span> <span class="s2">&quot;move_legend&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span>            <span class="s2">&quot;despine&quot;</span><span class="p">,</span> <span class="s2">&quot;get_dataset_names&quot;</span><span class="p">,</span> <span class="s2">&quot;get_data_home&quot;</span><span class="p">,</span> <span class="s2">&quot;load_dataset&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="n">DATASET_SOURCE</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/mwaskom/seaborn-data/master&quot;</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python312</span>\<span class="n">Lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">seaborn</span>\<span class="n">external</span>\<span class="n">appdirs</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">234</span>
-<span class="g g-Whitespace">    </span><span class="mi">232</span> <span class="k">if</span> <span class="n">system</span> <span class="o">==</span> <span class="s2">&quot;win32&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">233</span>     <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">234</span>         <span class="kn">import</span> <span class="nn">win32com.shell</span>
-<span class="g g-Whitespace">    </span><span class="mi">235</span>         <span class="n">_get_win_folder</span> <span class="o">=</span> <span class="n">_get_win_folder_with_pywin32</span>
-<span class="g g-Whitespace">    </span><span class="mi">236</span>     <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Roaming</span>\<span class="n">Python</span>\<span class="n">Python312</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">win32com</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">8</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">os</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">sys</span>
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="kn">import</span> <span class="nn">pythoncom</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">import</span> <span class="nn">win32api</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1"># flag if we are in a &quot;frozen&quot; build.</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Roaming</span>\<span class="n">Python</span>\<span class="n">Python312</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pythoncom</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Magic utility that &quot;redirects&quot; to pythoncomxx.dll</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pywintypes</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">pywintypes</span><span class="o">.</span><span class="n">__import_pywin32_system_module__</span><span class="p">(</span><span class="s2">&quot;pythoncom&quot;</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span>
-
-<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Roaming</span>\<span class="n">Python</span>\<span class="n">Python312</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">win32</span>\<span class="n">lib</span>\<span class="n">pywintypes</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">126</span>
-<span class="g g-Whitespace">    </span><span class="mi">122</span>     <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="n">modname</span><span class="p">]</span> <span class="o">=</span> <span class="n">old_mod</span>
-<span class="g g-Whitespace">    </span><span class="mi">123</span>     <span class="n">globs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">mod</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">126</span> <span class="n">__import_pywin32_system_module__</span><span class="p">(</span><span class="s2">&quot;pywintypes&quot;</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span>
-
-<span class="nn">File ~\AppData\Roaming\Python\Python312\site-packages\win32\lib\pywintypes.py:52,</span> in <span class="ni">__import_pywin32_system_module__</span><span class="nt">(modname, globs)</span>
-<span class="g g-Whitespace">     </span><span class="mi">47</span>         <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
-<span class="nn">     48             &quot;Module &#39;%s&#39; isn&#39;t</span> in <span class="ni">frozen sys.path %s&quot; % </span><span class="nt">(modname, sys.path)</span>
-<span class="g g-Whitespace">     </span><span class="mi">49</span>         <span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">50</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">51</span>     <span class="c1"># First see if it already in our process - if so, we must use that.</span>
-<span class="ne">---&gt; </span><span class="mi">52</span>     <span class="kn">import</span> <span class="nn">_win32sysloader</span>
-<span class="g g-Whitespace">     </span><span class="mi">54</span>     <span class="n">found</span> <span class="o">=</span> <span class="n">_win32sysloader</span><span class="o">.</span><span class="n">GetModuleFilename</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span>     <span class="k">if</span> <span class="n">found</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">     </span><span class="mi">56</span>         <span class="c1"># We ask Windows to load it next.  This is in an attempt to</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span>         <span class="c1"># get the exact same module loaded should pywintypes be imported</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">66</span>         <span class="c1"># That shouldn&#39;t really matter though, so long as we only ever</span>
-<span class="g g-Whitespace">     </span><span class="mi">67</span>         <span class="c1"># get one loaded.</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;google&#39;
 </pre></div>
 </div>
 </div>
@@ -1194,7 +1107,6 @@ Successfully installed gower-0.1.2 matplotlib-3.10.8 seaborn-0.13.2
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Mengukur Jarak (Similarity &amp; Dissimilarity)</strong></a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konsep-dasar">1. Konsep Dasar</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#similarity">1.1 Similarity</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dissimilarity-distance">1.2 Dissimilarity (Distance)</a></li>
@@ -1229,33 +1141,30 @@ Successfully installed gower-0.1.2 matplotlib-3.10.8 seaborn-0.13.2
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-campuran-mixed-data">5. Atribut Campuran (Mixed Data)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cosine-similarity">6. Cosine Similarity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-data-campuran-mixed-data">2. Implementasi Data Campuran (Mixed Data)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-umum-dataset">2.1 Deskripsi Umum Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-dataset">2.2 Atribut Dataset</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-jenis-data">2.3 Klasifikasi Jenis Data</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-data-campuran-mixed-data">2. Implementasi Data Campuran (Mixed Data)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-umum-dataset">2.1 Deskripsi Umum Dataset</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-dataset">2.2 Atribut Dataset</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-jenis-data">2.3 Klasifikasi Jenis Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-data-numerik">A. Data Numerik</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-data-ordinal">B. Data Ordinal</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-data-kategorikal-nominal">C. Data Kategorikal (Nominal)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-data-biner">D. Data Biner</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-transformasi-data">2.4 Tahapan Transformasi Data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-manual-euclidean-distance">2.5 Perhitungan Manual Euclidean Distance</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-yang-digunakan">Atribut yang digunakan:</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-data-biner">D. Data Biner</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-transformasi-data">2.4 Tahapan Transformasi Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-manual-euclidean-distance">2.5 Perhitungan Manual Euclidean Distance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-yang-digunakan">Atribut yang digunakan:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-nilai-minimum-maksimum">1. Menentukan Nilai Minimum &amp; Maksimum</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-min-max">2. Normalisasi Min-Max</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-selisih">3. Hitung Selisih</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kuadratkan-dan-jumlahkan">4. Kuadratkan dan Jumlahkan</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#akar-kuadrat">5. Akar Kuadrat</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-manhattan-distance">2.6 Perhitungan Manhattan Distance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-hasil">2.7 Perbandingan Hasil</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-manhattan-distance">2.6 Perhitungan Manhattan Distance</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-hasil">2.7 Perbandingan Hasil</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-menggunakan-orange">3. Implementasi Menggunakan Orange</a></li>
 </ul>
-</li>
-</ul>
-
   </nav></div>
 
 </div></div>
