@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>1. Konsep Dasar &#8212; Penambangan Data</title>
+    <title>Mengukur Jarak (Similarity &amp; Dissimilarity) &#8212; Penambangan Data</title>
   
   
   
@@ -178,12 +178,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="memahami-data.html"><strong>Pengantar Data Mining</strong></a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="data_understanding.html"><strong>Data Understanding</strong></a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Konsep Dasar</a></li>
-
-
-
-
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>Mengukur Jarak (Similarity &amp; Dissimilarity)</strong></a></li>
 
 </ul>
 
@@ -370,7 +365,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>1. Konsep Dasar</h1>
+    <h1>Mengukur Jarak (Similarity & Dissimilarity)</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -380,40 +375,43 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Konsep Dasar</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#similarity">1.1 Similarity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dissimilarity-distance">1.2 Dissimilarity (Distance)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Mengukur Jarak (Similarity &amp; Dissimilarity)</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konsep-dasar">1. Konsep Dasar</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#similarity">1.1 Similarity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dissimilarity-distance">1.2 Dissimilarity (Distance)</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#representasi-data">2. Representasi Data</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-matrix">2.1 Data Matrix</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dissimilarity-matrix">2.2 Dissimilarity Matrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representasi-data">2. Representasi Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-matrix">2.1 Data Matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dissimilarity-matrix">2.2 Dissimilarity Matrix</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pengukuran-berdasarkan-jenis-atribut">3. Pengukuran Berdasarkan Jenis Atribut</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-nominal">3.1 Atribut Nominal</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-matching">Simple Matching</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-binary">3.2 Atribut Binary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-simetris">3.2.1 Binary Simetris</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-asimetris-jaccard">3.2.2 Binary Asimetris (Jaccard)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-ordinal">3.3 Atribut Ordinal</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-numerik">3.4 Atribut Numerik</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#min-max-normalization">Min-Max Normalization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#z-score-normalization">Z-Score Normalization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengukuran-berdasarkan-jenis-atribut">3. Pengukuran Berdasarkan Jenis Atribut</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-nominal">3.1 Atribut Nominal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-matching">Simple Matching</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-binary">3.2 Atribut Binary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-simetris">3.2.1 Binary Simetris</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-asimetris-jaccard">3.2.2 Binary Asimetris (Jaccard)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-ordinal">3.3 Atribut Ordinal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-numerik">3.4 Atribut Numerik</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#min-max-normalization">Min-Max Normalization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#z-score-normalization">Z-Score Normalization</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#minkowski-distance-generalisasi-jarak">4. Minkowski Distance (Generalisasi Jarak)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus-umum">Rumus Umum</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cara-kerja">Cara Kerja</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sifat-minkowski">Sifat Minkowski</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kasus-khusus-minkowski">4.1 Kasus Khusus Minkowski</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manhattan-distance-h-1">Manhattan Distance (h = 1)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euclidean-distance-h-2">Euclidean Distance (h = 2)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supremum-distance-h">Supremum Distance (h → ∞)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minkowski-distance-generalisasi-jarak">4. Minkowski Distance (Generalisasi Jarak)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus-umum">Rumus Umum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cara-kerja">Cara Kerja</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sifat-minkowski">Sifat Minkowski</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kasus-khusus-minkowski">4.1 Kasus Khusus Minkowski</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manhattan-distance-h-1">Manhattan Distance (h = 1)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#euclidean-distance-h-2">Euclidean Distance (h = 2)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supremum-distance-h">Supremum Distance (h → ∞)</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-campuran-mixed-data">5. Atribut Campuran (Mixed Data)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cosine-similarity">6. Cosine Similarity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-campuran-mixed-data">5. Atribut Campuran (Mixed Data)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cosine-similarity">6. Cosine Similarity</a></li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-data-campuran-mixed-data">2. Implementasi Data Campuran (Mixed Data)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-umum-dataset">2.1 Deskripsi Umum Dataset</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-dataset">2.2 Atribut Dataset</a></li>
@@ -449,12 +447,13 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <p>##<strong>Mengukur Jarak (Similarity &amp; Dissimilarity)</strong></p>
+  <section id="mengukur-jarak-similarity-dissimilarity">
+<h1><strong>Mengukur Jarak (Similarity &amp; Dissimilarity)</strong><a class="headerlink" href="#mengukur-jarak-similarity-dissimilarity" title="Permalink to this heading">#</a></h1>
 <section id="konsep-dasar">
-<h1>1. Konsep Dasar<a class="headerlink" href="#konsep-dasar" title="Permalink to this heading">#</a></h1>
+<h2>1. Konsep Dasar<a class="headerlink" href="#konsep-dasar" title="Permalink to this heading">#</a></h2>
 <p>Dalam data mining, pengukuran jarak digunakan untuk mengetahui tingkat kemiripan atau perbedaan antar objek.</p>
 <section id="similarity">
-<h2>1.1 Similarity<a class="headerlink" href="#similarity" title="Permalink to this heading">#</a></h2>
+<h3>1.1 Similarity<a class="headerlink" href="#similarity" title="Permalink to this heading">#</a></h3>
 <p>Similarity adalah ukuran numerik yang menunjukkan seberapa mirip dua objek.</p>
 <ul class="simple">
 <li><p>Nilai tinggi → semakin mirip</p></li>
@@ -464,7 +463,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="dissimilarity-distance">
-<h2>1.2 Dissimilarity (Distance)<a class="headerlink" href="#dissimilarity-distance" title="Permalink to this heading">#</a></h2>
+<h3>1.2 Dissimilarity (Distance)<a class="headerlink" href="#dissimilarity-distance" title="Permalink to this heading">#</a></h3>
 <p>Dissimilarity atau distance mengukur tingkat perbedaan antar objek.</p>
 <ul class="simple">
 <li><p>Nilai kecil → semakin mirip</p></li>
@@ -473,13 +472,13 @@ document.write(`
 </ul>
 <p>Hubungan umum:<br />
 Semakin besar similarity → semakin kecil distance.</p>
+</section>
+</section>
 <hr class="docutils" />
-</section>
-</section>
 <section id="representasi-data">
-<h1>2. Representasi Data<a class="headerlink" href="#representasi-data" title="Permalink to this heading">#</a></h1>
+<h2>2. Representasi Data<a class="headerlink" href="#representasi-data" title="Permalink to this heading">#</a></h2>
 <section id="data-matrix">
-<h2>2.1 Data Matrix<a class="headerlink" href="#data-matrix" title="Permalink to this heading">#</a></h2>
+<h3>2.1 Data Matrix<a class="headerlink" href="#data-matrix" title="Permalink to this heading">#</a></h3>
 <p>Data direpresentasikan dalam bentuk matriks berukuran:</p>
 <p>n × p</p>
 <p>Dimana:</p>
@@ -492,7 +491,7 @@ Semakin besar similarity → semakin kecil distance.</p>
 </section>
 <hr class="docutils" />
 <section id="dissimilarity-matrix">
-<h2>2.2 Dissimilarity Matrix<a class="headerlink" href="#dissimilarity-matrix" title="Permalink to this heading">#</a></h2>
+<h3>2.2 Dissimilarity Matrix<a class="headerlink" href="#dissimilarity-matrix" title="Permalink to this heading">#</a></h3>
 <p>Matriks yang berisi jarak antar setiap pasangan objek.</p>
 <p>Sifat:</p>
 <ul class="simple">
@@ -500,18 +499,18 @@ Semakin besar similarity → semakin kecil distance.</p>
 <li><p>d(i,j) = d(j,i)</p></li>
 <li><p>d(i,i) = 0</p></li>
 </ul>
+</section>
+</section>
 <hr class="docutils" />
-</section>
-</section>
 <section id="pengukuran-berdasarkan-jenis-atribut">
-<h1>3. Pengukuran Berdasarkan Jenis Atribut<a class="headerlink" href="#pengukuran-berdasarkan-jenis-atribut" title="Permalink to this heading">#</a></h1>
+<h2>3. Pengukuran Berdasarkan Jenis Atribut<a class="headerlink" href="#pengukuran-berdasarkan-jenis-atribut" title="Permalink to this heading">#</a></h2>
 <hr class="docutils" />
 <section id="atribut-nominal">
-<h2>3.1 Atribut Nominal<a class="headerlink" href="#atribut-nominal" title="Permalink to this heading">#</a></h2>
+<h3>3.1 Atribut Nominal<a class="headerlink" href="#atribut-nominal" title="Permalink to this heading">#</a></h3>
 <p>Digunakan untuk kategori tanpa urutan.</p>
 </section>
 <section id="simple-matching">
-<h2>Simple Matching<a class="headerlink" href="#simple-matching" title="Permalink to this heading">#</a></h2>
+<h3>Simple Matching<a class="headerlink" href="#simple-matching" title="Permalink to this heading">#</a></h3>
 <p>Rumus similarity:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -531,10 +530,10 @@ D = \frac{p - m}{p}
 </section>
 <hr class="docutils" />
 <section id="atribut-binary">
-<h2>3.2 Atribut Binary<a class="headerlink" href="#atribut-binary" title="Permalink to this heading">#</a></h2>
+<h3>3.2 Atribut Binary<a class="headerlink" href="#atribut-binary" title="Permalink to this heading">#</a></h3>
 </section>
 <section id="binary-simetris">
-<h2>3.2.1 Binary Simetris<a class="headerlink" href="#binary-simetris" title="Permalink to this heading">#</a></h2>
+<h3>3.2.1 Binary Simetris<a class="headerlink" href="#binary-simetris" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 SMC = \frac{a + d}{a + b + c + d}
@@ -549,7 +548,7 @@ SMC = \frac{a + d}{a + b + c + d}
 </section>
 <hr class="docutils" />
 <section id="binary-asimetris-jaccard">
-<h2>3.2.2 Binary Asimetris (Jaccard)<a class="headerlink" href="#binary-asimetris-jaccard" title="Permalink to this heading">#</a></h2>
+<h3>3.2.2 Binary Asimetris (Jaccard)<a class="headerlink" href="#binary-asimetris-jaccard" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 J = \frac{a}{a + b + c}
@@ -558,7 +557,7 @@ J = \frac{a}{a + b + c}
 </section>
 <hr class="docutils" />
 <section id="atribut-ordinal">
-<h2>3.3 Atribut Ordinal<a class="headerlink" href="#atribut-ordinal" title="Permalink to this heading">#</a></h2>
+<h3>3.3 Atribut Ordinal<a class="headerlink" href="#atribut-ordinal" title="Permalink to this heading">#</a></h3>
 <p>Normalisasi ranking:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -573,10 +572,10 @@ z_{if} = \frac{r_{if} - 1}{M_f - 1}
 </section>
 <hr class="docutils" />
 <section id="atribut-numerik">
-<h2>3.4 Atribut Numerik<a class="headerlink" href="#atribut-numerik" title="Permalink to this heading">#</a></h2>
+<h3>3.4 Atribut Numerik<a class="headerlink" href="#atribut-numerik" title="Permalink to this heading">#</a></h3>
 </section>
 <section id="min-max-normalization">
-<h2>Min-Max Normalization<a class="headerlink" href="#min-max-normalization" title="Permalink to this heading">#</a></h2>
+<h3>Min-Max Normalization<a class="headerlink" href="#min-max-normalization" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 x' = \frac{x - x_{min}}{x_{max} - x_{min}}
@@ -584,19 +583,19 @@ x' = \frac{x - x_{min}}{x_{max} - x_{min}}
 </section>
 <hr class="docutils" />
 <section id="z-score-normalization">
-<h2>Z-Score Normalization<a class="headerlink" href="#z-score-normalization" title="Permalink to this heading">#</a></h2>
+<h3>Z-Score Normalization<a class="headerlink" href="#z-score-normalization" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 z = \frac{x - \mu}{\sigma}
 \]</div>
+</section>
+</section>
 <hr class="docutils" />
-</section>
-</section>
 <section id="minkowski-distance-generalisasi-jarak">
-<h1>4. Minkowski Distance (Generalisasi Jarak)<a class="headerlink" href="#minkowski-distance-generalisasi-jarak" title="Permalink to this heading">#</a></h1>
+<h2>4. Minkowski Distance (Generalisasi Jarak)<a class="headerlink" href="#minkowski-distance-generalisasi-jarak" title="Permalink to this heading">#</a></h2>
 <p>Minkowski Distance adalah bentuk umum dari pengukuran jarak pada data numerik multidimensi.</p>
 <section id="rumus-umum">
-<h2>Rumus Umum<a class="headerlink" href="#rumus-umum" title="Permalink to this heading">#</a></h2>
+<h3>Rumus Umum<a class="headerlink" href="#rumus-umum" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 d(i,j) = \left( \sum_{f=1}^{p} |x_{if} - x_{jf}|^h \right)^{\frac{1}{h}}
@@ -611,7 +610,7 @@ d(i,j) = \left( \sum_{f=1}^{p} |x_{if} - x_{jf}|^h \right)^{\frac{1}{h}}
 </section>
 <hr class="docutils" />
 <section id="cara-kerja">
-<h2>Cara Kerja<a class="headerlink" href="#cara-kerja" title="Permalink to this heading">#</a></h2>
+<h3>Cara Kerja<a class="headerlink" href="#cara-kerja" title="Permalink to this heading">#</a></h3>
 <ol class="arabic simple">
 <li><p>Hitung selisih tiap atribut</p></li>
 <li><p>Pangkatkan dengan h</p></li>
@@ -622,7 +621,7 @@ d(i,j) = \left( \sum_{f=1}^{p} |x_{if} - x_{jf}|^h \right)^{\frac{1}{h}}
 </section>
 <hr class="docutils" />
 <section id="sifat-minkowski">
-<h2>Sifat Minkowski<a class="headerlink" href="#sifat-minkowski" title="Permalink to this heading">#</a></h2>
+<h3>Sifat Minkowski<a class="headerlink" href="#sifat-minkowski" title="Permalink to this heading">#</a></h3>
 <ol class="arabic">
 <li><div class="math notranslate nohighlight">
 \[ d(i,j) \ge 0 \]</div>
@@ -640,10 +639,10 @@ d(i,j) = \left( \sum_{f=1}^{p} |x_{if} - x_{jf}|^h \right)^{\frac{1}{h}}
 </section>
 <hr class="docutils" />
 <section id="kasus-khusus-minkowski">
-<h2>4.1 Kasus Khusus Minkowski<a class="headerlink" href="#kasus-khusus-minkowski" title="Permalink to this heading">#</a></h2>
+<h3>4.1 Kasus Khusus Minkowski<a class="headerlink" href="#kasus-khusus-minkowski" title="Permalink to this heading">#</a></h3>
 </section>
 <section id="manhattan-distance-h-1">
-<h2>Manhattan Distance (h = 1)<a class="headerlink" href="#manhattan-distance-h-1" title="Permalink to this heading">#</a></h2>
+<h3>Manhattan Distance (h = 1)<a class="headerlink" href="#manhattan-distance-h-1" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 d(i,j) = \sum_{f=1}^{p} |x_{if} - x_{jf}|
@@ -652,7 +651,7 @@ d(i,j) = \sum_{f=1}^{p} |x_{if} - x_{jf}|
 </section>
 <hr class="docutils" />
 <section id="euclidean-distance-h-2">
-<h2>Euclidean Distance (h = 2)<a class="headerlink" href="#euclidean-distance-h-2" title="Permalink to this heading">#</a></h2>
+<h3>Euclidean Distance (h = 2)<a class="headerlink" href="#euclidean-distance-h-2" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 d(i,j) = \sqrt{\sum_{f=1}^{p} (x_{if} - x_{jf})^2}
@@ -661,17 +660,17 @@ d(i,j) = \sqrt{\sum_{f=1}^{p} (x_{if} - x_{jf})^2}
 </section>
 <hr class="docutils" />
 <section id="supremum-distance-h">
-<h2>Supremum Distance (h → ∞)<a class="headerlink" href="#supremum-distance-h" title="Permalink to this heading">#</a></h2>
+<h3>Supremum Distance (h → ∞)<a class="headerlink" href="#supremum-distance-h" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[
 d(i,j) = \max_{f} |x_{if} - x_{jf}|
 \]</div>
 <p>Mengambil selisih maksimum antar atribut.</p>
+</section>
+</section>
 <hr class="docutils" />
-</section>
-</section>
 <section id="atribut-campuran-mixed-data">
-<h1>5. Atribut Campuran (Mixed Data)<a class="headerlink" href="#atribut-campuran-mixed-data" title="Permalink to this heading">#</a></h1>
+<h2>5. Atribut Campuran (Mixed Data)<a class="headerlink" href="#atribut-campuran-mixed-data" title="Permalink to this heading">#</a></h2>
 <p>Jika dataset mengandung berbagai tipe data, gunakan pendekatan gabungan:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -688,10 +687,10 @@ d(i,j) = \frac{\sum_{f=1}^{p} w_f \, d_{if}}{\sum_{f=1}^{p} w_f}
 <li><p>Numerik → normalisasi</p></li>
 <li><p>Ordinal → ranking + normalisasi</p></li>
 </ol>
-<hr class="docutils" />
 </section>
+<hr class="docutils" />
 <section id="cosine-similarity">
-<h1>6. Cosine Similarity<a class="headerlink" href="#cosine-similarity" title="Permalink to this heading">#</a></h1>
+<h2>6. Cosine Similarity<a class="headerlink" href="#cosine-similarity" title="Permalink to this heading">#</a></h2>
 <p>Digunakan pada data teks.</p>
 <div class="math notranslate nohighlight">
 \[
@@ -705,6 +704,7 @@ d(i,j) = \frac{\sum_{f=1}^{p} w_f \, d_{if}}{\sum_{f=1}^{p} w_f}
 <p>Nilai mendekati 1 → sangat mirip<br />
 Nilai mendekati 0 → tidak mirip</p>
 <p>Cosine mengukur sudut antar vektor, bukan jarak absolut.</p>
+</section>
 </section>
 <section id="implementasi-data-campuran-mixed-data">
 <h1>2. Implementasi Data Campuran (Mixed Data)<a class="headerlink" href="#implementasi-data-campuran-mixed-data" title="Permalink to this heading">#</a></h1>
@@ -1018,27 +1018,19 @@ Orange menghasilkan matriks jarak berukuran 1000 × 1000, menunjukkan jarak seti
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting gower
   Using cached gower-0.1.2-py3-none-any.whl.metadata (3.7 kB)
 Collecting seaborn
   Using cached seaborn-0.13.2-py3-none-any.whl.metadata (5.4 kB)
 Requirement already satisfied: numpy in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from gower) (2.4.2)
 Requirement already satisfied: scipy in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from gower) (1.17.1)
-Collecting pandas&gt;=1.2 (from seaborn)
-  Using cached pandas-3.0.1-cp312-cp312-win_amd64.whl.metadata (19 kB)
+Requirement already satisfied: pandas&gt;=1.2 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from seaborn) (3.0.1)
 Collecting matplotlib!=3.6.1,&gt;=3.4 (from seaborn)
   Using cached matplotlib-3.10.8-cp312-cp312-win_amd64.whl.metadata (52 kB)
-Collecting contourpy&gt;=1.0.1 (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn)
-  Using cached contourpy-1.3.3-cp312-cp312-win_amd64.whl.metadata (5.5 kB)
-Collecting cycler&gt;=0.10 (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn)
-  Using cached cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
-Collecting fonttools&gt;=4.22.0 (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn)
-  Using cached fonttools-4.61.1-cp312-cp312-win_amd64.whl.metadata (116 kB)
-Collecting kiwisolver&gt;=1.3.1 (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn)
-  Using cached kiwisolver-1.4.9-cp312-cp312-win_amd64.whl.metadata (6.4 kB)
+Requirement already satisfied: contourpy&gt;=1.0.1 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (1.3.3)
+Requirement already satisfied: cycler&gt;=0.10 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (0.12.1)
+Requirement already satisfied: fonttools&gt;=4.22.0 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (4.61.1)
+Requirement already satisfied: kiwisolver&gt;=1.3.1 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (1.4.9)
 Requirement already satisfied: packaging&gt;=20.0 in c:\users\dini\appdata\roaming\python\python312\site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (24.1)
 Requirement already satisfied: pillow&gt;=8 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (12.1.1)
 Requirement already satisfied: pyparsing&gt;=3 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from matplotlib!=3.6.1,&gt;=3.4-&gt;seaborn) (3.3.2)
@@ -1048,12 +1040,98 @@ Requirement already satisfied: six&gt;=1.5 in c:\users\dini\appdata\roaming\pyth
 Using cached gower-0.1.2-py3-none-any.whl (5.2 kB)
 Using cached seaborn-0.13.2-py3-none-any.whl (294 kB)
 Using cached matplotlib-3.10.8-cp312-cp312-win_amd64.whl (8.1 MB)
-Using cached pandas-3.0.1-cp312-cp312-win_amd64.whl (9.7 MB)
-Using cached contourpy-1.3.3-cp312-cp312-win_amd64.whl (226 kB)
-Using cached cycler-0.12.1-py3-none-any.whl (8.3 kB)
-Using cached fonttools-4.61.1-cp312-cp312-win_amd64.whl (2.3 MB)
-Using cached kiwisolver-1.4.9-cp312-cp312-win_amd64.whl (73 kB)
-Installing collected packages: kiwisolver, fonttools, cycler, contourpy, pandas, matplotlib, gower, seaborn
+Installing collected packages: matplotlib, gower, seaborn
+Successfully installed gower-0.1.2 matplotlib-3.10.8 seaborn-0.13.2
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[notice] A new release of pip is available: 25.0.1 -&gt; 26.0.1
+[notice] To update, run: python.exe -m pip install --upgrade pip
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">gower</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">files</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python312</span>\<span class="n">Lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">seaborn</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Import seaborn objects</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">from</span> <span class="nn">.rcmod</span> <span class="kn">import</span> <span class="o">*</span>  <span class="c1"># noqa: F401,F403</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="o">*</span>  <span class="c1"># noqa: F401,F403</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">.palettes</span> <span class="kn">import</span> <span class="o">*</span>  <span class="c1"># noqa: F401,F403</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python312</span>\<span class="n">Lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">seaborn</span>\<span class="n">rcmod</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">5</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">from</span> <span class="nn">cycler</span> <span class="kn">import</span> <span class="n">cycler</span>
+<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">palettes</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;set_theme&quot;</span><span class="p">,</span> <span class="s2">&quot;set&quot;</span><span class="p">,</span> <span class="s2">&quot;reset_defaults&quot;</span><span class="p">,</span> <span class="s2">&quot;reset_orig&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span>            <span class="s2">&quot;axes_style&quot;</span><span class="p">,</span> <span class="s2">&quot;set_style&quot;</span><span class="p">,</span> <span class="s2">&quot;plotting_context&quot;</span><span class="p">,</span> <span class="s2">&quot;set_context&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>            <span class="s2">&quot;set_palette&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">_style_keys</span> <span class="o">=</span> <span class="p">[</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> 
+<span class="g g-Whitespace">     </span><span class="mi">15</span>     <span class="s2">&quot;axes.facecolor&quot;</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span> 
+<span class="g g-Whitespace">     </span><span class="mi">51</span> <span class="p">]</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python312</span>\<span class="n">Lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">seaborn</span>\<span class="n">palettes</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">9</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="kn">from</span> <span class="nn">.external</span> <span class="kn">import</span> <span class="n">husl</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="kn">from</span> <span class="nn">.utils</span> <span class="kn">import</span> <span class="n">desaturate</span><span class="p">,</span> <span class="n">get_color_cycle</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="kn">from</span> <span class="nn">.colors</span> <span class="kn">import</span> <span class="n">xkcd_rgb</span><span class="p">,</span> <span class="n">crayons</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="kn">from</span> <span class="nn">._compat</span> <span class="kn">import</span> <span class="n">get_colormap</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python312</span>\<span class="n">Lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">seaborn</span>\<span class="n">utils</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">19</span>
+<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="kn">from</span> <span class="nn">seaborn._core.typing</span> <span class="kn">import</span> <span class="n">deprecated</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span> <span class="kn">from</span> <span class="nn">seaborn.external.version</span> <span class="kn">import</span> <span class="n">Version</span>
+<span class="ne">---&gt; </span><span class="mi">19</span> <span class="kn">from</span> <span class="nn">seaborn.external.appdirs</span> <span class="kn">import</span> <span class="n">user_cache_dir</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;desaturate&quot;</span><span class="p">,</span> <span class="s2">&quot;saturate&quot;</span><span class="p">,</span> <span class="s2">&quot;set_hls_values&quot;</span><span class="p">,</span> <span class="s2">&quot;move_legend&quot;</span><span class="p">,</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span>            <span class="s2">&quot;despine&quot;</span><span class="p">,</span> <span class="s2">&quot;get_dataset_names&quot;</span><span class="p">,</span> <span class="s2">&quot;get_data_home&quot;</span><span class="p">,</span> <span class="s2">&quot;load_dataset&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="n">DATASET_SOURCE</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/mwaskom/seaborn-data/master&quot;</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Local</span>\<span class="n">Programs</span>\<span class="n">Python</span>\<span class="n">Python312</span>\<span class="n">Lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">seaborn</span>\<span class="n">external</span>\<span class="n">appdirs</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">234</span>
+<span class="g g-Whitespace">    </span><span class="mi">232</span> <span class="k">if</span> <span class="n">system</span> <span class="o">==</span> <span class="s2">&quot;win32&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">233</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">234</span>         <span class="kn">import</span> <span class="nn">win32com.shell</span>
+<span class="g g-Whitespace">    </span><span class="mi">235</span>         <span class="n">_get_win_folder</span> <span class="o">=</span> <span class="n">_get_win_folder_with_pywin32</span>
+<span class="g g-Whitespace">    </span><span class="mi">236</span>     <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Roaming</span>\<span class="n">Python</span>\<span class="n">Python312</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">win32com</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">8</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">os</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">sys</span>
+<span class="ne">----&gt; </span><span class="mi">8</span> <span class="kn">import</span> <span class="nn">pythoncom</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="kn">import</span> <span class="nn">win32api</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1"># flag if we are in a &quot;frozen&quot; build.</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Roaming</span>\<span class="n">Python</span>\<span class="n">Python312</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pythoncom</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Magic utility that &quot;redirects&quot; to pythoncomxx.dll</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">pywintypes</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">pywintypes</span><span class="o">.</span><span class="n">__import_pywin32_system_module__</span><span class="p">(</span><span class="s2">&quot;pythoncom&quot;</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span>
+
+<span class="n">File</span> <span class="o">~</span>\<span class="n">AppData</span>\<span class="n">Roaming</span>\<span class="n">Python</span>\<span class="n">Python312</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">win32</span>\<span class="n">lib</span>\<span class="n">pywintypes</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">126</span>
+<span class="g g-Whitespace">    </span><span class="mi">122</span>     <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="n">modname</span><span class="p">]</span> <span class="o">=</span> <span class="n">old_mod</span>
+<span class="g g-Whitespace">    </span><span class="mi">123</span>     <span class="n">globs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">mod</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">126</span> <span class="n">__import_pywin32_system_module__</span><span class="p">(</span><span class="s2">&quot;pywintypes&quot;</span><span class="p">,</span> <span class="nb">globals</span><span class="p">())</span>
+
+<span class="nn">File ~\AppData\Roaming\Python\Python312\site-packages\win32\lib\pywintypes.py:52,</span> in <span class="ni">__import_pywin32_system_module__</span><span class="nt">(modname, globs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">47</span>         <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span>
+<span class="nn">     48             &quot;Module &#39;%s&#39; isn&#39;t</span> in <span class="ni">frozen sys.path %s&quot; % </span><span class="nt">(modname, sys.path)</span>
+<span class="g g-Whitespace">     </span><span class="mi">49</span>         <span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">50</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">51</span>     <span class="c1"># First see if it already in our process - if so, we must use that.</span>
+<span class="ne">---&gt; </span><span class="mi">52</span>     <span class="kn">import</span> <span class="nn">_win32sysloader</span>
+<span class="g g-Whitespace">     </span><span class="mi">54</span>     <span class="n">found</span> <span class="o">=</span> <span class="n">_win32sysloader</span><span class="o">.</span><span class="n">GetModuleFilename</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span>     <span class="k">if</span> <span class="n">found</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">56</span>         <span class="c1"># We ask Windows to load it next.  This is in an attempt to</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span>         <span class="c1"># get the exact same module loaded should pywintypes be imported</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">66</span>         <span class="c1"># That shouldn&#39;t really matter though, so long as we only ever</span>
+<span class="g g-Whitespace">     </span><span class="mi">67</span>         <span class="c1"># get one loaded.</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -1116,40 +1194,43 @@ Installing collected packages: kiwisolver, fonttools, cycler, contourpy, pandas,
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Konsep Dasar</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#similarity">1.1 Similarity</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dissimilarity-distance">1.2 Dissimilarity (Distance)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><strong>Mengukur Jarak (Similarity &amp; Dissimilarity)</strong></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konsep-dasar">1. Konsep Dasar</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#similarity">1.1 Similarity</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dissimilarity-distance">1.2 Dissimilarity (Distance)</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#representasi-data">2. Representasi Data</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-matrix">2.1 Data Matrix</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dissimilarity-matrix">2.2 Dissimilarity Matrix</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#representasi-data">2. Representasi Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-matrix">2.1 Data Matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dissimilarity-matrix">2.2 Dissimilarity Matrix</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pengukuran-berdasarkan-jenis-atribut">3. Pengukuran Berdasarkan Jenis Atribut</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-nominal">3.1 Atribut Nominal</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-matching">Simple Matching</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-binary">3.2 Atribut Binary</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-simetris">3.2.1 Binary Simetris</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-asimetris-jaccard">3.2.2 Binary Asimetris (Jaccard)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-ordinal">3.3 Atribut Ordinal</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-numerik">3.4 Atribut Numerik</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#min-max-normalization">Min-Max Normalization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#z-score-normalization">Z-Score Normalization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pengukuran-berdasarkan-jenis-atribut">3. Pengukuran Berdasarkan Jenis Atribut</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-nominal">3.1 Atribut Nominal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-matching">Simple Matching</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-binary">3.2 Atribut Binary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-simetris">3.2.1 Binary Simetris</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-asimetris-jaccard">3.2.2 Binary Asimetris (Jaccard)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-ordinal">3.3 Atribut Ordinal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-numerik">3.4 Atribut Numerik</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#min-max-normalization">Min-Max Normalization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#z-score-normalization">Z-Score Normalization</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#minkowski-distance-generalisasi-jarak">4. Minkowski Distance (Generalisasi Jarak)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus-umum">Rumus Umum</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cara-kerja">Cara Kerja</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sifat-minkowski">Sifat Minkowski</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kasus-khusus-minkowski">4.1 Kasus Khusus Minkowski</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manhattan-distance-h-1">Manhattan Distance (h = 1)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euclidean-distance-h-2">Euclidean Distance (h = 2)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supremum-distance-h">Supremum Distance (h → ∞)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#minkowski-distance-generalisasi-jarak">4. Minkowski Distance (Generalisasi Jarak)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus-umum">Rumus Umum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cara-kerja">Cara Kerja</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sifat-minkowski">Sifat Minkowski</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kasus-khusus-minkowski">4.1 Kasus Khusus Minkowski</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manhattan-distance-h-1">Manhattan Distance (h = 1)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#euclidean-distance-h-2">Euclidean Distance (h = 2)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supremum-distance-h">Supremum Distance (h → ∞)</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-campuran-mixed-data">5. Atribut Campuran (Mixed Data)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cosine-similarity">6. Cosine Similarity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-campuran-mixed-data">5. Atribut Campuran (Mixed Data)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cosine-similarity">6. Cosine Similarity</a></li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-data-campuran-mixed-data">2. Implementasi Data Campuran (Mixed Data)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-umum-dataset">2.1 Deskripsi Umum Dataset</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-dataset">2.2 Atribut Dataset</a></li>
