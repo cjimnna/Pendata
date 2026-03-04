@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>MENGUKUR JARAK (SIMILARITY &amp; DISSIMILARITY) &#8212; Penambangan Data</title>
+    <title>1. Konsep Dasar &#8212; Penambangan Data</title>
   
   
   
@@ -178,7 +178,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="memahami-data.html"><strong>Pengantar Data Mining</strong></a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="data_understanding.html"><strong>Data Understanding</strong></a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">MENGUKUR JARAK (SIMILARITY &amp; DISSIMILARITY)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Konsep Dasar</a></li>
+
 
 
 
@@ -369,7 +370,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>MENGUKUR JARAK (SIMILARITY & DISSIMILARITY)</h1>
+    <h1>1. Konsep Dasar</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -379,12 +380,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">MENGUKUR JARAK (SIMILARITY &amp; DISSIMILARITY)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konsep-dasar">1. Konsep Dasar</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#similarity">1.1 Similarity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dissimilarity-distance">1.2 Dissimilarity (Distance)</a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Konsep Dasar</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#similarity">1.1 Similarity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dissimilarity-distance">1.2 Dissimilarity (Distance)</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#representasi-data">2. Representasi Data</a><ul class="visible nav section-nav flex-column">
@@ -393,60 +391,50 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pengukuran-berdasarkan-jenis-atribut">3. Pengukuran Berdasarkan Jenis Atribut</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-nominal">3.1 Atribut Nominal</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-matching">Simple Matching</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-binary">3.2 Atribut Binary</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-simetris">3.2.1 Binary Simetris</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-asimetris-jaccard">3.2.2 Binary Asimetris (Jaccard)</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-nominal">3.1 Atribut Nominal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-matching">Simple Matching</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-binary">3.2 Atribut Binary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-simetris">3.2.1 Binary Simetris</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-asimetris-jaccard">3.2.2 Binary Asimetris (Jaccard)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-ordinal">3.3 Atribut Ordinal</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-numerik">3.4 Atribut Numerik</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#min-max-normalization">Min-Max Normalization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#z-score-normalization">Z-Score Normalization</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-numerik">3.4 Atribut Numerik</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#min-max-normalization">Min-Max Normalization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#z-score-normalization">Z-Score Normalization</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#minkowski-distance-generalisasi-jarak">4. Minkowski Distance (Generalisasi Jarak)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus-umum">Rumus Umum</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cara-kerja">Cara Kerja</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sifat-minkowski">Sifat Minkowski</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kasus-khusus-minkowski">4.1 Kasus Khusus Minkowski</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manhattan-distance-h-1">Manhattan Distance (h = 1)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#euclidean-distance-h-2">Euclidean Distance (h = 2)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supremum-distance-h">Supremum Distance (h → ∞)</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kasus-khusus-minkowski">4.1 Kasus Khusus Minkowski</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manhattan-distance-h-1">Manhattan Distance (h = 1)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euclidean-distance-h-2">Euclidean Distance (h = 2)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supremum-distance-h">Supremum Distance (h → ∞)</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-campuran-mixed-data">5. Atribut Campuran (Mixed Data)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cosine-similarity">6. Cosine Similarity</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-data-campuran-mixed-data">2. Implementasi Data Campuran (Mixed Data)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-umum-dataset">2.1 Deskripsi Umum Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-dataset">2.2 Atribut Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-jenis-data">2.3 Klasifikasi Jenis Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-data-numerik">A. Data Numerik</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-data-ordinal">B. Data Ordinal</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-data-kategorikal-nominal">C. Data Kategorikal (Nominal)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-data-biner">D. Data Biner</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-transformasi-data">2.4 Tahapan Transformasi Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-manual-euclidean-distance">2.5 Perhitungan Manual Euclidean Distance</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-yang-digunakan">Atribut yang digunakan:</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-nilai-minimum-maksimum">1. Menentukan Nilai Minimum &amp; Maksimum</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-min-max">2. Normalisasi Min-Max</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-selisih">3. Hitung Selisih</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#kuadratkan-dan-jumlahkan">4. Kuadratkan dan Jumlahkan</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#akar-kuadrat">5. Akar Kuadrat</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cosine-similarity">6. Cosine Similarity</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-data-campuran-mixed-data">2. Implementasi Data Campuran (Mixed Data)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-umum-dataset">2.1 Deskripsi Umum Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-dataset">2.2 Atribut Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-jenis-data">2.3 Klasifikasi Jenis Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-data-numerik">A. Data Numerik</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-data-ordinal">B. Data Ordinal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-data-kategorikal-nominal">C. Data Kategorikal (Nominal)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-data-biner">D. Data Biner</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-transformasi-data">2.4 Tahapan Transformasi Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-manual-euclidean-distance">2.5 Perhitungan Manual Euclidean Distance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-yang-digunakan">Atribut yang digunakan:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-nilai-minimum-maksimum">1. Menentukan Nilai Minimum &amp; Maksimum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-min-max">2. Normalisasi Min-Max</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-selisih">3. Hitung Selisih</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kuadratkan-dan-jumlahkan">4. Kuadratkan dan Jumlahkan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#akar-kuadrat">5. Akar Kuadrat</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-manhattan-distance">2.6 Perhitungan Manhattan Distance</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-hasil">2.7 Perbandingan Hasil</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-menggunakan-orange">3. Implementasi Menggunakan Orange</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-manhattan-distance">2.6 Perhitungan Manhattan Distance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-hasil">2.7 Perbandingan Hasil</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-menggunakan-orange">3. Implementasi Menggunakan Orange</a></li>
 </ul>
 </li>
 </ul>
@@ -461,13 +449,12 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="mengukur-jarak-similarity-dissimilarity">
-<h1>MENGUKUR JARAK (SIMILARITY &amp; DISSIMILARITY)<a class="headerlink" href="#mengukur-jarak-similarity-dissimilarity" title="Permalink to this heading">#</a></h1>
+  <p>##<strong>Mengukur Jarak (Similarity &amp; Dissimilarity)</strong></p>
 <section id="konsep-dasar">
-<h2>1. Konsep Dasar<a class="headerlink" href="#konsep-dasar" title="Permalink to this heading">#</a></h2>
+<h1>1. Konsep Dasar<a class="headerlink" href="#konsep-dasar" title="Permalink to this heading">#</a></h1>
 <p>Dalam data mining, pengukuran jarak digunakan untuk mengetahui tingkat kemiripan atau perbedaan antar objek.</p>
 <section id="similarity">
-<h3>1.1 Similarity<a class="headerlink" href="#similarity" title="Permalink to this heading">#</a></h3>
+<h2>1.1 Similarity<a class="headerlink" href="#similarity" title="Permalink to this heading">#</a></h2>
 <p>Similarity adalah ukuran numerik yang menunjukkan seberapa mirip dua objek.</p>
 <ul class="simple">
 <li><p>Nilai tinggi → semakin mirip</p></li>
@@ -477,7 +464,7 @@ document.write(`
 </section>
 <hr class="docutils" />
 <section id="dissimilarity-distance">
-<h3>1.2 Dissimilarity (Distance)<a class="headerlink" href="#dissimilarity-distance" title="Permalink to this heading">#</a></h3>
+<h2>1.2 Dissimilarity (Distance)<a class="headerlink" href="#dissimilarity-distance" title="Permalink to this heading">#</a></h2>
 <p>Dissimilarity atau distance mengukur tingkat perbedaan antar objek.</p>
 <ul class="simple">
 <li><p>Nilai kecil → semakin mirip</p></li>
@@ -486,11 +473,10 @@ document.write(`
 </ul>
 <p>Hubungan umum:<br />
 Semakin besar similarity → semakin kecil distance.</p>
-</section>
-</section>
-</section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="representasi-data">
+</section>
+</section>
+<section id="representasi-data">
 <h1>2. Representasi Data<a class="headerlink" href="#representasi-data" title="Permalink to this heading">#</a></h1>
 <section id="data-matrix">
 <h2>2.1 Data Matrix<a class="headerlink" href="#data-matrix" title="Permalink to this heading">#</a></h2>
@@ -514,17 +500,18 @@ Semakin besar similarity → semakin kecil distance.</p>
 <li><p>d(i,j) = d(j,i)</p></li>
 <li><p>d(i,i) = 0</p></li>
 </ul>
-</section>
-</section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="pengukuran-berdasarkan-jenis-atribut">
+</section>
+</section>
+<section id="pengukuran-berdasarkan-jenis-atribut">
 <h1>3. Pengukuran Berdasarkan Jenis Atribut<a class="headerlink" href="#pengukuran-berdasarkan-jenis-atribut" title="Permalink to this heading">#</a></h1>
 <hr class="docutils" />
 <section id="atribut-nominal">
 <h2>3.1 Atribut Nominal<a class="headerlink" href="#atribut-nominal" title="Permalink to this heading">#</a></h2>
 <p>Digunakan untuk kategori tanpa urutan.</p>
+</section>
 <section id="simple-matching">
-<h3>Simple Matching<a class="headerlink" href="#simple-matching" title="Permalink to this heading">#</a></h3>
+<h2>Simple Matching<a class="headerlink" href="#simple-matching" title="Permalink to this heading">#</a></h2>
 <p>Rumus similarity:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -542,12 +529,12 @@ D = \frac{p - m}{p}
 </ul>
 <p>Semakin banyak kecocokan → semakin tinggi similarity.</p>
 </section>
-</section>
 <hr class="docutils" />
 <section id="atribut-binary">
 <h2>3.2 Atribut Binary<a class="headerlink" href="#atribut-binary" title="Permalink to this heading">#</a></h2>
+</section>
 <section id="binary-simetris">
-<h3>3.2.1 Binary Simetris<a class="headerlink" href="#binary-simetris" title="Permalink to this heading">#</a></h3>
+<h2>3.2.1 Binary Simetris<a class="headerlink" href="#binary-simetris" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[
 SMC = \frac{a + d}{a + b + c + d}
@@ -562,13 +549,12 @@ SMC = \frac{a + d}{a + b + c + d}
 </section>
 <hr class="docutils" />
 <section id="binary-asimetris-jaccard">
-<h3>3.2.2 Binary Asimetris (Jaccard)<a class="headerlink" href="#binary-asimetris-jaccard" title="Permalink to this heading">#</a></h3>
+<h2>3.2.2 Binary Asimetris (Jaccard)<a class="headerlink" href="#binary-asimetris-jaccard" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[
 J = \frac{a}{a + b + c}
 \]</div>
 <p>Pasangan 0-0 tidak dihitung karena tidak informatif.</p>
-</section>
 </section>
 <hr class="docutils" />
 <section id="atribut-ordinal">
@@ -588,8 +574,9 @@ z_{if} = \frac{r_{if} - 1}{M_f - 1}
 <hr class="docutils" />
 <section id="atribut-numerik">
 <h2>3.4 Atribut Numerik<a class="headerlink" href="#atribut-numerik" title="Permalink to this heading">#</a></h2>
+</section>
 <section id="min-max-normalization">
-<h3>Min-Max Normalization<a class="headerlink" href="#min-max-normalization" title="Permalink to this heading">#</a></h3>
+<h2>Min-Max Normalization<a class="headerlink" href="#min-max-normalization" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[
 x' = \frac{x - x_{min}}{x_{max} - x_{min}}
@@ -597,16 +584,15 @@ x' = \frac{x - x_{min}}{x_{max} - x_{min}}
 </section>
 <hr class="docutils" />
 <section id="z-score-normalization">
-<h3>Z-Score Normalization<a class="headerlink" href="#z-score-normalization" title="Permalink to this heading">#</a></h3>
+<h2>Z-Score Normalization<a class="headerlink" href="#z-score-normalization" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[
 z = \frac{x - \mu}{\sigma}
 \]</div>
-</section>
-</section>
-</section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="minkowski-distance-generalisasi-jarak">
+</section>
+</section>
+<section id="minkowski-distance-generalisasi-jarak">
 <h1>4. Minkowski Distance (Generalisasi Jarak)<a class="headerlink" href="#minkowski-distance-generalisasi-jarak" title="Permalink to this heading">#</a></h1>
 <p>Minkowski Distance adalah bentuk umum dari pengukuran jarak pada data numerik multidimensi.</p>
 <section id="rumus-umum">
@@ -655,8 +641,9 @@ d(i,j) = \left( \sum_{f=1}^{p} |x_{if} - x_{jf}|^h \right)^{\frac{1}{h}}
 <hr class="docutils" />
 <section id="kasus-khusus-minkowski">
 <h2>4.1 Kasus Khusus Minkowski<a class="headerlink" href="#kasus-khusus-minkowski" title="Permalink to this heading">#</a></h2>
+</section>
 <section id="manhattan-distance-h-1">
-<h3>Manhattan Distance (h = 1)<a class="headerlink" href="#manhattan-distance-h-1" title="Permalink to this heading">#</a></h3>
+<h2>Manhattan Distance (h = 1)<a class="headerlink" href="#manhattan-distance-h-1" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[
 d(i,j) = \sum_{f=1}^{p} |x_{if} - x_{jf}|
@@ -665,7 +652,7 @@ d(i,j) = \sum_{f=1}^{p} |x_{if} - x_{jf}|
 </section>
 <hr class="docutils" />
 <section id="euclidean-distance-h-2">
-<h3>Euclidean Distance (h = 2)<a class="headerlink" href="#euclidean-distance-h-2" title="Permalink to this heading">#</a></h3>
+<h2>Euclidean Distance (h = 2)<a class="headerlink" href="#euclidean-distance-h-2" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[
 d(i,j) = \sqrt{\sum_{f=1}^{p} (x_{if} - x_{jf})^2}
@@ -674,17 +661,16 @@ d(i,j) = \sqrt{\sum_{f=1}^{p} (x_{if} - x_{jf})^2}
 </section>
 <hr class="docutils" />
 <section id="supremum-distance-h">
-<h3>Supremum Distance (h → ∞)<a class="headerlink" href="#supremum-distance-h" title="Permalink to this heading">#</a></h3>
+<h2>Supremum Distance (h → ∞)<a class="headerlink" href="#supremum-distance-h" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[
 d(i,j) = \max_{f} |x_{if} - x_{jf}|
 \]</div>
 <p>Mengambil selisih maksimum antar atribut.</p>
-</section>
-</section>
-</section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="atribut-campuran-mixed-data">
+</section>
+</section>
+<section id="atribut-campuran-mixed-data">
 <h1>5. Atribut Campuran (Mixed Data)<a class="headerlink" href="#atribut-campuran-mixed-data" title="Permalink to this heading">#</a></h1>
 <p>Jika dataset mengandung berbagai tipe data, gunakan pendekatan gabungan:</p>
 <div class="math notranslate nohighlight">
@@ -702,9 +688,9 @@ d(i,j) = \frac{\sum_{f=1}^{p} w_f \, d_{if}}{\sum_{f=1}^{p} w_f}
 <li><p>Numerik → normalisasi</p></li>
 <li><p>Ordinal → ranking + normalisasi</p></li>
 </ol>
-</section>
 <hr class="docutils" />
-<section class="tex2jax_ignore mathjax_ignore" id="cosine-similarity">
+</section>
+<section id="cosine-similarity">
 <h1>6. Cosine Similarity<a class="headerlink" href="#cosine-similarity" title="Permalink to this heading">#</a></h1>
 <p>Digunakan pada data teks.</p>
 <div class="math notranslate nohighlight">
@@ -719,10 +705,11 @@ d(i,j) = \frac{\sum_{f=1}^{p} w_f \, d_{if}}{\sum_{f=1}^{p} w_f}
 <p>Nilai mendekati 1 → sangat mirip<br />
 Nilai mendekati 0 → tidak mirip</p>
 <p>Cosine mengukur sudut antar vektor, bukan jarak absolut.</p>
+</section>
 <section id="implementasi-data-campuran-mixed-data">
-<h2>2. Implementasi Data Campuran (Mixed Data)<a class="headerlink" href="#implementasi-data-campuran-mixed-data" title="Permalink to this heading">#</a></h2>
+<h1>2. Implementasi Data Campuran (Mixed Data)<a class="headerlink" href="#implementasi-data-campuran-mixed-data" title="Permalink to this heading">#</a></h1>
 <section id="deskripsi-umum-dataset">
-<h3>2.1 Deskripsi Umum Dataset<a class="headerlink" href="#deskripsi-umum-dataset" title="Permalink to this heading">#</a></h3>
+<h2>2.1 Deskripsi Umum Dataset<a class="headerlink" href="#deskripsi-umum-dataset" title="Permalink to this heading">#</a></h2>
 <p>Dataset yang digunakan adalah <strong>Student Performance Dataset</strong> yang diambil dari Kaggle. Dataset ini berisi informasi mengenai performa akademik siswa berdasarkan faktor demografis dan latar belakang keluarga.</p>
 <p><strong>Karakteristik dataset:</strong></p>
 <ul class="simple">
@@ -744,7 +731,7 @@ Nilai mendekati 0 → tidak mirip</p>
 </section>
 <hr class="docutils" />
 <section id="atribut-dataset">
-<h3>2.2 Atribut Dataset<a class="headerlink" href="#atribut-dataset" title="Permalink to this heading">#</a></h3>
+<h2>2.2 Atribut Dataset<a class="headerlink" href="#atribut-dataset" title="Permalink to this heading">#</a></h2>
 <p>Berikut atribut yang digunakan:</p>
 <ol class="arabic simple">
 <li><p>gender</p></li>
@@ -761,10 +748,10 @@ Nilai mendekati 0 → tidak mirip</p>
 </section>
 <hr class="docutils" />
 <section id="klasifikasi-jenis-data">
-<h3>2.3 Klasifikasi Jenis Data<a class="headerlink" href="#klasifikasi-jenis-data" title="Permalink to this heading">#</a></h3>
+<h2>2.3 Klasifikasi Jenis Data<a class="headerlink" href="#klasifikasi-jenis-data" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="a-data-numerik">
-<h3>A. Data Numerik<a class="headerlink" href="#a-data-numerik" title="Permalink to this heading">#</a></h3>
+<h2>A. Data Numerik<a class="headerlink" href="#a-data-numerik" title="Permalink to this heading">#</a></h2>
 <p>Merupakan data berbentuk angka yang dapat dihitung secara matematis.</p>
 <ul class="simple">
 <li><p>math score (0–100)</p></li>
@@ -776,7 +763,7 @@ Nilai mendekati 0 → tidak mirip</p>
 </div></blockquote>
 </section>
 <section id="b-data-ordinal">
-<h3>B. Data Ordinal<a class="headerlink" href="#b-data-ordinal" title="Permalink to this heading">#</a></h3>
+<h2>B. Data Ordinal<a class="headerlink" href="#b-data-ordinal" title="Permalink to this heading">#</a></h2>
 <p>Merupakan data kategori yang memiliki tingkatan.</p>
 <ol class="arabic simple">
 <li><p><strong>education_level_ordinal</strong><br />
@@ -799,7 +786,7 @@ Kategori nilai matematika:</p></li>
 <p>Data ini menunjukkan tingkat performa akademik.</p>
 </section>
 <section id="c-data-kategorikal-nominal">
-<h3>C. Data Kategorikal (Nominal)<a class="headerlink" href="#c-data-kategorikal-nominal" title="Permalink to this heading">#</a></h3>
+<h2>C. Data Kategorikal (Nominal)<a class="headerlink" href="#c-data-kategorikal-nominal" title="Permalink to this heading">#</a></h2>
 <p>Tidak memiliki urutan.</p>
 <ul class="simple">
 <li><p>race/ethnicity</p></li>
@@ -810,7 +797,7 @@ Kategori nilai matematika:</p></li>
 </div></blockquote>
 </section>
 <section id="d-data-biner">
-<h3>D. Data Biner<a class="headerlink" href="#d-data-biner" title="Permalink to this heading">#</a></h3>
+<h2>D. Data Biner<a class="headerlink" href="#d-data-biner" title="Permalink to this heading">#</a></h2>
 <p>Memiliki dua kemungkinan nilai.</p>
 <ul class="simple">
 <li><p>gender (male/female)</p></li>
@@ -822,7 +809,7 @@ none = 0, completed = 1</p>
 </section>
 <hr class="docutils" />
 <section id="tahapan-transformasi-data">
-<h3>2.4 Tahapan Transformasi Data<a class="headerlink" href="#tahapan-transformasi-data" title="Permalink to this heading">#</a></h3>
+<h2>2.4 Tahapan Transformasi Data<a class="headerlink" href="#tahapan-transformasi-data" title="Permalink to this heading">#</a></h2>
 <p>Sebelum menghitung jarak:</p>
 <ol class="arabic simple">
 <li><p>Data biner → diubah menjadi 0 dan 1</p></li>
@@ -833,10 +820,10 @@ none = 0, completed = 1</p>
 </section>
 <hr class="docutils" />
 <section id="perhitungan-manual-euclidean-distance">
-<h3>2.5 Perhitungan Manual Euclidean Distance<a class="headerlink" href="#perhitungan-manual-euclidean-distance" title="Permalink to this heading">#</a></h3>
+<h2>2.5 Perhitungan Manual Euclidean Distance<a class="headerlink" href="#perhitungan-manual-euclidean-distance" title="Permalink to this heading">#</a></h2>
 </section>
 <section id="atribut-yang-digunakan">
-<h3>Atribut yang digunakan:<a class="headerlink" href="#atribut-yang-digunakan" title="Permalink to this heading">#</a></h3>
+<h2>Atribut yang digunakan:<a class="headerlink" href="#atribut-yang-digunakan" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>math score</p></li>
 <li><p>reading score</p></li>
@@ -845,7 +832,7 @@ none = 0, completed = 1</p>
 <li><p>gender</p></li>
 </ul>
 <section id="menentukan-nilai-minimum-maksimum">
-<h4>1. Menentukan Nilai Minimum &amp; Maksimum<a class="headerlink" href="#menentukan-nilai-minimum-maksimum" title="Permalink to this heading">#</a></h4>
+<h3>1. Menentukan Nilai Minimum &amp; Maksimum<a class="headerlink" href="#menentukan-nilai-minimum-maksimum" title="Permalink to this heading">#</a></h3>
 <div class="pst-scrollable-table-container"><table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Atribut</p></th>
@@ -879,7 +866,7 @@ none = 0, completed = 1</p>
 </div>
 </section>
 <section id="normalisasi-min-max">
-<h4>2. Normalisasi Min-Max<a class="headerlink" href="#normalisasi-min-max" title="Permalink to this heading">#</a></h4>
+<h3>2. Normalisasi Min-Max<a class="headerlink" href="#normalisasi-min-max" title="Permalink to this heading">#</a></h3>
 <p>Rumus:</p>
 <p>[
 x’ = \frac{x - x_{min}}{x_{max} - x_{min}}
@@ -907,7 +894,7 @@ x’ = \frac{x - x_{min}}{x_{max} - x_{min}}
 </ul>
 </section>
 <section id="hitung-selisih">
-<h4>3. Hitung Selisih<a class="headerlink" href="#hitung-selisih" title="Permalink to this heading">#</a></h4>
+<h3>3. Hitung Selisih<a class="headerlink" href="#hitung-selisih" title="Permalink to this heading">#</a></h3>
 <p>0.72 − 0.69 = 0.03
 0.72 − 0.90 = −0.18
 0.74 − 0.88 = −0.14
@@ -915,7 +902,7 @@ x’ = \frac{x - x_{min}}{x_{max} - x_{min}}
 1 − 0 = 1</p>
 </section>
 <section id="kuadratkan-dan-jumlahkan">
-<h4>4. Kuadratkan dan Jumlahkan<a class="headerlink" href="#kuadratkan-dan-jumlahkan" title="Permalink to this heading">#</a></h4>
+<h3>4. Kuadratkan dan Jumlahkan<a class="headerlink" href="#kuadratkan-dan-jumlahkan" title="Permalink to this heading">#</a></h3>
 <p>0.03² = 0.0009
 0.18² = 0.0324
 0.14² = 0.0196
@@ -924,7 +911,7 @@ x’ = \frac{x - x_{min}}{x_{max} - x_{min}}
 Total = 1.2129</p>
 </section>
 <section id="akar-kuadrat">
-<h4>5. Akar Kuadrat<a class="headerlink" href="#akar-kuadrat" title="Permalink to this heading">#</a></h4>
+<h3>5. Akar Kuadrat<a class="headerlink" href="#akar-kuadrat" title="Permalink to this heading">#</a></h3>
 <p>[
 d = \sqrt{1.2129} \approx 1.10
 ]</p>
@@ -935,7 +922,7 @@ d = \sqrt{1.2129} \approx 1.10
 </section>
 <hr class="docutils" />
 <section id="perhitungan-manhattan-distance">
-<h3>2.6 Perhitungan Manhattan Distance<a class="headerlink" href="#perhitungan-manhattan-distance" title="Permalink to this heading">#</a></h3>
+<h2>2.6 Perhitungan Manhattan Distance<a class="headerlink" href="#perhitungan-manhattan-distance" title="Permalink to this heading">#</a></h2>
 <p>Rumus:</p>
 <p>[
 d = \sum |x_i - y_i|
@@ -945,7 +932,7 @@ d = \sum |x_i - y_i|
 </section>
 <hr class="docutils" />
 <section id="perbandingan-hasil">
-<h3>2.7 Perbandingan Hasil<a class="headerlink" href="#perbandingan-hasil" title="Permalink to this heading">#</a></h3>
+<h2>2.7 Perbandingan Hasil<a class="headerlink" href="#perbandingan-hasil" title="Permalink to this heading">#</a></h2>
 <div class="pst-scrollable-table-container"><table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Metode</p></th>
@@ -968,7 +955,7 @@ d = \sum |x_i - y_i|
 </section>
 <hr class="docutils" />
 <section id="implementasi-menggunakan-orange">
-<h3>3. Implementasi Menggunakan Orange<a class="headerlink" href="#implementasi-menggunakan-orange" title="Permalink to this heading">#</a></h3>
+<h2>3. Implementasi Menggunakan Orange<a class="headerlink" href="#implementasi-menggunakan-orange" title="Permalink to this heading">#</a></h2>
 <p><strong>Langkah:</strong></p>
 <ol class="arabic simple">
 <li><p>Import file CSV ke Orange menggunakan widget <strong>File</strong></p></li>
@@ -1039,8 +1026,7 @@ Orange menghasilkan matriks jarak berukuran 1000 × 1000, menunjukkan jarak seti
 Collecting seaborn
   Using cached seaborn-0.13.2-py3-none-any.whl.metadata (5.4 kB)
 Requirement already satisfied: numpy in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from gower) (2.4.2)
-Collecting scipy (from gower)
-  Using cached scipy-1.17.1-cp312-cp312-win_amd64.whl.metadata (60 kB)
+Requirement already satisfied: scipy in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from gower) (1.17.1)
 Collecting pandas&gt;=1.2 (from seaborn)
   Using cached pandas-3.0.1-cp312-cp312-win_amd64.whl.metadata (19 kB)
 Collecting matplotlib!=3.6.1,&gt;=3.4 (from seaborn)
@@ -1063,28 +1049,15 @@ Using cached gower-0.1.2-py3-none-any.whl (5.2 kB)
 Using cached seaborn-0.13.2-py3-none-any.whl (294 kB)
 Using cached matplotlib-3.10.8-cp312-cp312-win_amd64.whl (8.1 MB)
 Using cached pandas-3.0.1-cp312-cp312-win_amd64.whl (9.7 MB)
-Using cached scipy-1.17.1-cp312-cp312-win_amd64.whl (36.5 MB)
 Using cached contourpy-1.3.3-cp312-cp312-win_amd64.whl (226 kB)
 Using cached cycler-0.12.1-py3-none-any.whl (8.3 kB)
 Using cached fonttools-4.61.1-cp312-cp312-win_amd64.whl (2.3 MB)
 Using cached kiwisolver-1.4.9-cp312-cp312-win_amd64.whl (73 kB)
-Installing collected packages: scipy, kiwisolver, fonttools, cycler, contourpy, pandas, matplotlib, gower, seaborn
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;pip install gower seaborn&#39;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">gower</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;pandas&#39;
+Installing collected packages: kiwisolver, fonttools, cycler, contourpy, pandas, matplotlib, gower, seaborn
 </pre></div>
 </div>
 </div>
 </div>
-</section>
 </section>
 </section>
 
@@ -1143,12 +1116,9 @@ Installing collected packages: scipy, kiwisolver, fonttools, cycler, contourpy, 
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">MENGUKUR JARAK (SIMILARITY &amp; DISSIMILARITY)</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konsep-dasar">1. Konsep Dasar</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#similarity">1.1 Similarity</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dissimilarity-distance">1.2 Dissimilarity (Distance)</a></li>
-</ul>
-</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">1. Konsep Dasar</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#similarity">1.1 Similarity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dissimilarity-distance">1.2 Dissimilarity (Distance)</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#representasi-data">2. Representasi Data</a><ul class="visible nav section-nav flex-column">
@@ -1157,60 +1127,50 @@ Installing collected packages: scipy, kiwisolver, fonttools, cycler, contourpy, 
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pengukuran-berdasarkan-jenis-atribut">3. Pengukuran Berdasarkan Jenis Atribut</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-nominal">3.1 Atribut Nominal</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-matching">Simple Matching</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-binary">3.2 Atribut Binary</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-simetris">3.2.1 Binary Simetris</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-asimetris-jaccard">3.2.2 Binary Asimetris (Jaccard)</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-nominal">3.1 Atribut Nominal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-matching">Simple Matching</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-binary">3.2 Atribut Binary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-simetris">3.2.1 Binary Simetris</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#binary-asimetris-jaccard">3.2.2 Binary Asimetris (Jaccard)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-ordinal">3.3 Atribut Ordinal</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-numerik">3.4 Atribut Numerik</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#min-max-normalization">Min-Max Normalization</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#z-score-normalization">Z-Score Normalization</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-numerik">3.4 Atribut Numerik</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#min-max-normalization">Min-Max Normalization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#z-score-normalization">Z-Score Normalization</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#minkowski-distance-generalisasi-jarak">4. Minkowski Distance (Generalisasi Jarak)</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rumus-umum">Rumus Umum</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cara-kerja">Cara Kerja</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sifat-minkowski">Sifat Minkowski</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kasus-khusus-minkowski">4.1 Kasus Khusus Minkowski</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#manhattan-distance-h-1">Manhattan Distance (h = 1)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#euclidean-distance-h-2">Euclidean Distance (h = 2)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supremum-distance-h">Supremum Distance (h → ∞)</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kasus-khusus-minkowski">4.1 Kasus Khusus Minkowski</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manhattan-distance-h-1">Manhattan Distance (h = 1)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euclidean-distance-h-2">Euclidean Distance (h = 2)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#supremum-distance-h">Supremum Distance (h → ∞)</a></li>
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-campuran-mixed-data">5. Atribut Campuran (Mixed Data)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cosine-similarity">6. Cosine Similarity</a><ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-data-campuran-mixed-data">2. Implementasi Data Campuran (Mixed Data)</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-umum-dataset">2.1 Deskripsi Umum Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-dataset">2.2 Atribut Dataset</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-jenis-data">2.3 Klasifikasi Jenis Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-data-numerik">A. Data Numerik</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-data-ordinal">B. Data Ordinal</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#c-data-kategorikal-nominal">C. Data Kategorikal (Nominal)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#d-data-biner">D. Data Biner</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-transformasi-data">2.4 Tahapan Transformasi Data</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-manual-euclidean-distance">2.5 Perhitungan Manual Euclidean Distance</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-yang-digunakan">Atribut yang digunakan:</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-nilai-minimum-maksimum">1. Menentukan Nilai Minimum &amp; Maksimum</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-min-max">2. Normalisasi Min-Max</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-selisih">3. Hitung Selisih</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#kuadratkan-dan-jumlahkan">4. Kuadratkan dan Jumlahkan</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#akar-kuadrat">5. Akar Kuadrat</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cosine-similarity">6. Cosine Similarity</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-data-campuran-mixed-data">2. Implementasi Data Campuran (Mixed Data)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deskripsi-umum-dataset">2.1 Deskripsi Umum Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-dataset">2.2 Atribut Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#klasifikasi-jenis-data">2.3 Klasifikasi Jenis Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-data-numerik">A. Data Numerik</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#b-data-ordinal">B. Data Ordinal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#c-data-kategorikal-nominal">C. Data Kategorikal (Nominal)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#d-data-biner">D. Data Biner</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tahapan-transformasi-data">2.4 Tahapan Transformasi Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-manual-euclidean-distance">2.5 Perhitungan Manual Euclidean Distance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#atribut-yang-digunakan">Atribut yang digunakan:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#menentukan-nilai-minimum-maksimum">1. Menentukan Nilai Minimum &amp; Maksimum</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-min-max">2. Normalisasi Min-Max</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hitung-selisih">3. Hitung Selisih</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#kuadratkan-dan-jumlahkan">4. Kuadratkan dan Jumlahkan</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#akar-kuadrat">5. Akar Kuadrat</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-manhattan-distance">2.6 Perhitungan Manhattan Distance</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-hasil">2.7 Perbandingan Hasil</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-menggunakan-orange">3. Implementasi Menggunakan Orange</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perhitungan-manhattan-distance">2.6 Perhitungan Manhattan Distance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#perbandingan-hasil">2.7 Perbandingan Hasil</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-menggunakan-orange">3. Implementasi Menggunakan Orange</a></li>
 </ul>
 </li>
 </ul>
