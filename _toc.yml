@@ -7,3 +7,6 @@ chapters:
 - file: memahami-data
 - file: data_understanding
 - file: mengukur_jarak
+- file: mengukur_jarak_iris
+- file: preprocessing
+- file: missing_values_imputation
