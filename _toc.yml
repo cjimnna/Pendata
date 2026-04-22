@@ -10,3 +10,4 @@ chapters:
 - file: mengukur_jarak_iris
 - file: preprocessing
 - file: missing_values_imputation
+- file: uts
