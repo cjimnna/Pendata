@@ -1,4 +1,4 @@
-# Naive Bayes Classifier
+# **Naive Bayes Classifier**
 ### Pengantar Data Mining — Probabilistic Classification
 
 ---
