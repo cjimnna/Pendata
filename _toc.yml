@@ -12,3 +12,4 @@ chapters:
 - file: missing_values_imputation
 - file: uts
 - file: naive_bayes
+- file: naive_bayes_v2
