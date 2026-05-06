@@ -13,3 +13,4 @@ chapters:
 - file: uts
 - file: naive_bayes
 - file: naive_bayes_v2
+- file: decision_tree
