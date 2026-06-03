@@ -397,13 +397,16 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data-setelah-interpolasi">13. Visualisasi Data Setelah Interpolasi</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-korelasi-data-time-series">14. Analisis Korelasi Data Time Series</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-data-menggunakan-min-max-scaling">15. Normalisasi Data Menggunakan Min-Max Scaling</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembentukan-dataset-supervised-learning-lag-4-hari">16. Pembentukan Dataset Supervised Learning (Lag 4 Hari)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembentukan-dataset-supervised-learning-lag-10-hari">17. Pembentukan Dataset Supervised Learning (Lag 10 Hari)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembentukan-dataset-supervised-learning-lag-30-hari">18. Pembentukan Dataset Supervised Learning (Lag 30 Hari)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-dan-evaluasi-menggunakan-knn-regression">19. Modeling dan Evaluasi Menggunakan KNN Regression</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-hasil-prediksi-lag-4-hari">20. Visualisasi Hasil Prediksi Lag 4 Hari</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-hasil-prediksi-lag-10-hari">21. Visualisasi Hasil Prediksi Lag 10 Hari</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-hasil-prediksi-lag-30-hari">22. Visualisasi Hasil Prediksi Lag 30 Hari</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembentukan-dataset-supervised-learning-lag-2-hari">16. Pembentukan Dataset Supervised Learning (Lag 2 Hari)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembentukan-dataset-supervised-learning-lag-4-hari">17. Pembentukan Dataset Supervised Learning (Lag 4 Hari)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembentukan-dataset-supervised-learning-lag-10-hari">18. Pembentukan Dataset Supervised Learning (Lag 10 Hari)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembentukan-dataset-supervised-learning-lag-30-hari">19. Pembentukan Dataset Supervised Learning (Lag 30 Hari)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-dan-evaluasi-menggunakan-knn-regression">20. Modeling dan Evaluasi Menggunakan KNN Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-hasil-prediksi-lag-2-hari">21. Visualisasi Hasil Prediksi Lag 2 Hari</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-hasil-prediksi-lag-4-hari">22. Visualisasi Hasil Prediksi Lag 4 Hari</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-hasil-prediksi-lag-10-hari">23. Visualisasi Hasil Prediksi Lag 10 Hari</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-hasil-prediksi-lag-30-hari">24. Visualisasi Hasil Prediksi Lag 30 Hari</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prediksi-nilai-no2-untuk-hari-berikutnya">### 25. Prediksi Nilai NO₂ untuk Hari Berikutnya</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
 </ul>
             </nav>
@@ -438,91 +441,48 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting openeo
-  Downloading openeo-0.50.0-py3-none-any.whl.metadata (8.9 kB)
+  Using cached openeo-0.50.0-py3-none-any.whl.metadata (8.9 kB)
 Requirement already satisfied: requests&gt;=2.26.0 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from openeo) (2.32.3)
 Requirement already satisfied: urllib3&gt;=1.9.0 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from openeo) (2.3.0)
-Collecting shapely&gt;=1.6.4 (from openeo)
-  Downloading shapely-2.1.2-cp312-cp312-win_amd64.whl.metadata (7.1 kB)
+Requirement already satisfied: shapely&gt;=1.6.4 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from openeo) (2.1.2)
 Requirement already satisfied: numpy&gt;=1.17.0 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from openeo) (2.4.2)
 Collecting xarray&lt;2025.01.2,&gt;=0.12.3 (from openeo)
-  Downloading xarray-2025.1.1-py3-none-any.whl.metadata (11 kB)
-Collecting pandas&lt;3.0.0,&gt;0.20.0 (from openeo)
-  Downloading pandas-2.3.3-cp312-cp312-win_amd64.whl.metadata (19 kB)
-Collecting pystac&gt;=1.5.0 (from openeo)
-  Downloading pystac-1.14.3-py3-none-any.whl.metadata (4.7 kB)
+  Using cached xarray-2025.1.1-py3-none-any.whl.metadata (11 kB)
+Requirement already satisfied: pandas&lt;3.0.0,&gt;0.20.0 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from openeo) (2.3.3)
+Requirement already satisfied: pystac&gt;=1.5.0 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from openeo) (1.14.3)
 Collecting deprecated&gt;=1.2.12 (from openeo)
-  Downloading deprecated-1.3.1-py2.py3-none-any.whl.metadata (5.9 kB)
-Collecting oschmod&gt;=0.3.12 (from openeo)
-  Downloading oschmod-0.3.12-py2.py3-none-any.whl.metadata (10.0 kB)
+  Using cached deprecated-1.3.1-py2.py3-none-any.whl.metadata (5.9 kB)
+Requirement already satisfied: oschmod&gt;=0.3.12 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from openeo) (0.3.12)
 Collecting geopandas&gt;=0.14 (from openeo)
-  Downloading geopandas-1.1.3-py3-none-any.whl.metadata (2.3 kB)
-Collecting wrapt&lt;3,&gt;=1.10 (from deprecated&gt;=1.2.12-&gt;openeo)
-  Downloading wrapt-2.2.1-cp312-cp312-win_amd64.whl.metadata (7.6 kB)
-Collecting pyogrio&gt;=0.7.2 (from geopandas&gt;=0.14-&gt;openeo)
-  Downloading pyogrio-0.12.1-cp312-cp312-win_amd64.whl.metadata (6.0 kB)
+  Using cached geopandas-1.1.3-py3-none-any.whl.metadata (2.3 kB)
+Requirement already satisfied: wrapt&lt;3,&gt;=1.10 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from deprecated&gt;=1.2.12-&gt;openeo) (2.2.1)
+Requirement already satisfied: pyogrio&gt;=0.7.2 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from geopandas&gt;=0.14-&gt;openeo) (0.12.1)
 Requirement already satisfied: packaging in c:\users\dini\appdata\roaming\python\python312\site-packages (from geopandas&gt;=0.14-&gt;openeo) (24.1)
-Collecting pyproj&gt;=3.5.0 (from geopandas&gt;=0.14-&gt;openeo)
-  Downloading pyproj-3.7.2-cp312-cp312-win_amd64.whl.metadata (31 kB)
+Requirement already satisfied: pyproj&gt;=3.5.0 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from geopandas&gt;=0.14-&gt;openeo) (3.7.2)
 Requirement already satisfied: pywin32 in c:\users\dini\appdata\roaming\python\python312\site-packages (from oschmod&gt;=0.3.12-&gt;openeo) (306)
 Requirement already satisfied: python-dateutil&gt;=2.8.2 in c:\users\dini\appdata\roaming\python\python312\site-packages (from pandas&lt;3.0.0,&gt;0.20.0-&gt;openeo) (2.9.0.post0)
-Collecting pytz&gt;=2020.1 (from pandas&lt;3.0.0,&gt;0.20.0-&gt;openeo)
-  Downloading pytz-2026.2-py2.py3-none-any.whl.metadata (22 kB)
+Requirement already satisfied: pytz&gt;=2020.1 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from pandas&lt;3.0.0,&gt;0.20.0-&gt;openeo) (2026.2)
 Requirement already satisfied: tzdata&gt;=2022.7 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from pandas&lt;3.0.0,&gt;0.20.0-&gt;openeo) (2025.3)
 Requirement already satisfied: charset-normalizer&lt;4,&gt;=2 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from requests&gt;=2.26.0-&gt;openeo) (3.4.1)
 Requirement already satisfied: idna&lt;4,&gt;=2.5 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from requests&gt;=2.26.0-&gt;openeo) (3.10)
 Requirement already satisfied: certifi&gt;=2017.4.17 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from requests&gt;=2.26.0-&gt;openeo) (2025.1.31)
 Requirement already satisfied: six&gt;=1.5 in c:\users\dini\appdata\roaming\python\python312\site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas&lt;3.0.0,&gt;0.20.0-&gt;openeo) (1.16.0)
-Downloading openeo-0.50.0-py3-none-any.whl (345 kB)
-Downloading deprecated-1.3.1-py2.py3-none-any.whl (11 kB)
-Downloading geopandas-1.1.3-py3-none-any.whl (342 kB)
-Downloading oschmod-0.3.12-py2.py3-none-any.whl (14 kB)
-Downloading pandas-2.3.3-cp312-cp312-win_amd64.whl (11.0 MB)
-   ---------------------------------------- 0.0/11.0 MB ? eta -:--:--
-   ------- -------------------------------- 2.1/11.0 MB 11.8 MB/s eta 0:00:01
-   ---------------- ----------------------- 4.5/11.0 MB 11.7 MB/s eta 0:00:01
-   --------------------- ------------------ 6.0/11.0 MB 10.2 MB/s eta 0:00:01
-   ----------------------------- ---------- 8.1/11.0 MB 10.1 MB/s eta 0:00:01
-   ------------------------------------ --- 10.0/11.0 MB 9.7 MB/s eta 0:00:01
-   ---------------------------------------- 11.0/11.0 MB 9.3 MB/s eta 0:00:00
-Downloading pystac-1.14.3-py3-none-any.whl (208 kB)
-Downloading shapely-2.1.2-cp312-cp312-win_amd64.whl (1.7 MB)
-   ---------------------------------------- 0.0/1.7 MB ? eta -:--:--
-   ---------------------------------------- 1.7/1.7 MB 11.7 MB/s eta 0:00:00
-Downloading xarray-2025.1.1-py3-none-any.whl (1.2 MB)
-   ---------------------------------------- 0.0/1.2 MB ? eta -:--:--
-   ---------------------------------------- 1.2/1.2 MB 10.5 MB/s eta 0:00:00
-Downloading pyogrio-0.12.1-cp312-cp312-win_amd64.whl (22.9 MB)
-   ---------------------------------------- 0.0/22.9 MB ? eta -:--:--
-   ---- ----------------------------------- 2.4/22.9 MB 12.2 MB/s eta 0:00:02
-   -------- ------------------------------- 4.7/22.9 MB 11.4 MB/s eta 0:00:02
-   ------------ --------------------------- 7.1/22.9 MB 10.9 MB/s eta 0:00:02
-   --------------- ------------------------ 8.9/22.9 MB 10.4 MB/s eta 0:00:02
-   ------------------- -------------------- 11.0/22.9 MB 10.3 MB/s eta 0:00:02
-   ----------------------- ---------------- 13.4/22.9 MB 10.2 MB/s eta 0:00:01
-   -------------------------- ------------- 15.2/22.9 MB 10.2 MB/s eta 0:00:01
-   ------------------------------ --------- 17.6/22.9 MB 10.2 MB/s eta 0:00:01
-   ---------------------------------- ----- 19.7/22.9 MB 10.3 MB/s eta 0:00:01
-   -------------------------------------- - 22.0/22.9 MB 10.3 MB/s eta 0:00:01
-   ---------------------------------------- 22.9/22.9 MB 10.1 MB/s eta 0:00:00
-Downloading pyproj-3.7.2-cp312-cp312-win_amd64.whl (6.3 MB)
-   ---------------------------------------- 0.0/6.3 MB ? eta -:--:--
-   ------------- -------------------------- 2.1/6.3 MB 10.7 MB/s eta 0:00:01
-   -------------------------- ------------- 4.2/6.3 MB 10.5 MB/s eta 0:00:01
-   ---------------------------------------- 6.3/6.3 MB 10.2 MB/s eta 0:00:00
-Downloading pytz-2026.2-py2.py3-none-any.whl (510 kB)
-Downloading wrapt-2.2.1-cp312-cp312-win_amd64.whl (80 kB)
-Installing collected packages: pytz, wrapt, shapely, pyproj, pyogrio, oschmod, pystac, pandas, deprecated, xarray, geopandas, openeo
-  Attempting uninstall: pandas
-    Found existing installation: pandas 3.0.1
-    Uninstalling pandas-3.0.1:
-      Successfully uninstalled pandas-3.0.1
+Using cached openeo-0.50.0-py3-none-any.whl (345 kB)
+Using cached deprecated-1.3.1-py2.py3-none-any.whl (11 kB)
+Using cached geopandas-1.1.3-py3-none-any.whl (342 kB)
+Using cached xarray-2025.1.1-py3-none-any.whl (1.2 MB)
+Installing collected packages: deprecated, xarray, geopandas, openeo
+Successfully installed deprecated-1.3.1 geopandas-1.1.3 openeo-0.50.0 xarray-2025.1.1
+Note: you may need to restart the kernel to use updated packages.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: Ignoring invalid distribution ~andas (C:\Users\DINI\AppData\Local\Programs\Python\Python312\Lib\site-packages)
+WARNING: Ignoring invalid distribution ~andas (C:\Users\DINI\AppData\Local\Programs\Python\Python312\Lib\site-packages)
+WARNING: Ignoring invalid distribution ~andas (C:\Users\DINI\AppData\Local\Programs\Python\Python312\Lib\site-packages)
+
+[notice] A new release of pip is available: 25.0.1 -&gt; 26.1.2
+[notice] To update, run: python.exe -m pip install --upgrade pip
 </pre></div>
 </div>
 </div>
@@ -546,7 +506,45 @@ Installing collected packages: pytz, wrapt, shapely, pyproj, pyogrio, oschmod, p
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html">Visit <a href="https://identity.dataspace.copernicus.eu/auth/realms/CDSE/device?user_code=JZJB-UDWJ" title="Authenticate at https://identity.dataspace.copernicus.eu/auth/realms/CDSE/device?user_code=JZJB-UDWJ" target="_blank" rel="noopener noreferrer">https://identity.dataspace.copernicus.eu/auth/realms/CDSE/device?user_code=JZJB-UDWJ</a> <a href="#" onclick="navigator.clipboard.writeText('https://identity.dataspace.copernicus.eu/auth/realms/CDSE/device?user_code=JZJB-UDWJ');return false;" title="Copy authentication URL to clipboard">&#128203;</a> to authenticate.</div><div class="output text_html">✅ Authorized successfully</div><div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Authenticated using device code flow.
+<div class="output text_html">Visit <a href="https://identity.dataspace.copernicus.eu/auth/realms/CDSE/device?user_code=INYD-FCNL" title="Authenticate at https://identity.dataspace.copernicus.eu/auth/realms/CDSE/device?user_code=INYD-FCNL" target="_blank" rel="noopener noreferrer">https://identity.dataspace.copernicus.eu/auth/realms/CDSE/device?user_code=INYD-FCNL</a> <a href="#" onclick="navigator.clipboard.writeText('https://identity.dataspace.copernicus.eu/auth/realms/CDSE/device?user_code=INYD-FCNL');return false;" title="Copy authentication URL to clipboard">&#128203;</a> to authenticate.</div><div class="output text_html"><code>[##################################---]</code> ⌛ Authorization pending</div><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">connection</span> <span class="o">=</span> <span class="n">openeo</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s2">&quot;openeo.dataspace.copernicus.eu&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">authenticate_oidc</span><span class="p">()</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python312\Lib\site-packages\openeo\rest\connection.py:689,</span> in <span class="ni">Connection.authenticate_oidc</span><span class="nt">(self, provider_id, client_id, client_secret, store_refresh_token, use_pkce, display, max_poll_time)</span>
+<span class="g g-Whitespace">    </span><span class="mi">685</span> <span class="n">_log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Trying device code flow.&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">686</span> <span class="n">authenticator</span> <span class="o">=</span> <span class="n">OidcDeviceAuthenticator</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">687</span>     <span class="n">client_info</span><span class="o">=</span><span class="n">client_info</span><span class="p">,</span> <span class="n">use_pkce</span><span class="o">=</span><span class="n">use_pkce</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="n">display</span><span class="p">,</span> <span class="n">max_poll_time</span><span class="o">=</span><span class="n">max_poll_time</span>
+<span class="g g-Whitespace">    </span><span class="mi">688</span> <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">689</span> <span class="n">con</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_authenticate_oidc</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">690</span>     <span class="n">authenticator</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">691</span>     <span class="n">provider_id</span><span class="o">=</span><span class="n">provider_id</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">692</span>     <span class="n">store_refresh_token</span><span class="o">=</span><span class="n">store_refresh_token</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">693</span>     <span class="c1"># TODO: expose `auto_renew_from_refresh_token` directly as option instead of reusing `store_refresh_token` arg?</span>
+<span class="g g-Whitespace">    </span><span class="mi">694</span>     <span class="n">auto_renew_from_refresh_token</span><span class="o">=</span><span class="n">store_refresh_token</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">695</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">696</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Authenticated using device code flow.&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">697</span> <span class="k">return</span> <span class="n">con</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python312\Lib\site-packages\openeo\rest\connection.py:405,</span> in <span class="ni">Connection._authenticate_oidc</span><span class="nt">(self, authenticator, provider_id, store_refresh_token, auto_renew_from_refresh_token, fallback_refresh_token, oidc_auth_renewer)</span>
+<span class="g g-Whitespace">    </span><span class="mi">401</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">402</span><span class="sd"> Authenticate through OIDC and set up bearer token (based on OIDC access_token) for further requests.</span>
+<span class="g g-Whitespace">    </span><span class="mi">403</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">404</span> <span class="n">request_refresh_token</span> <span class="o">=</span> <span class="n">store_refresh_token</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="n">oidc_auth_renewer</span> <span class="ow">and</span> <span class="n">auto_renew_from_refresh_token</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">405</span> <span class="n">tokens</span> <span class="o">=</span> <span class="n">authenticator</span><span class="o">.</span><span class="n">get_tokens</span><span class="p">(</span><span class="n">request_refresh_token</span><span class="o">=</span><span class="n">request_refresh_token</span><span class="p">)</span>
+<span class="nn">    406 _log.info(&quot;Obtained tokens: {t}&quot;.format(t=[k for k, v</span> in <span class="ni">tokens._asdict().items</span><span class="nt">() if v]))</span>
+<span class="g g-Whitespace">    </span><span class="mi">408</span> <span class="n">refresh_token</span> <span class="o">=</span> <span class="n">tokens</span><span class="o">.</span><span class="n">refresh_token</span> <span class="ow">or</span> <span class="n">fallback_refresh_token</span>
+
+<span class="nn">File ~\AppData\Local\Programs\Python\Python312\Lib\site-packages\openeo\rest\auth\oidc.py:928,</span> in <span class="ni">OidcDeviceAuthenticator.get_tokens</span><span class="nt">(self, request_refresh_token)</span>
+<span class="g g-Whitespace">    </span><span class="mi">926</span> <span class="k">while</span> <span class="n">elapsed</span><span class="p">()</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_max_poll_time</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">927</span>     <span class="n">poll_ui</span><span class="o">.</span><span class="n">show_progress</span><span class="p">()</span>
+<span class="ne">--&gt; </span><span class="mi">928</span>     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">sleep</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">930</span>     <span class="k">if</span> <span class="n">elapsed</span><span class="p">()</span> <span class="o">&gt;=</span> <span class="n">next_poll</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">931</span>         <span class="n">log</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">932</span>             <span class="sa">f</span><span class="s2">&quot;Doing </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">grant_type</span><span class="si">!r}</span><span class="s2"> token request </span><span class="si">{</span><span class="n">token_endpoint</span><span class="si">!r}</span><span class="s2"> with post data fields </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">post_data</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">!r}</span><span class="s2"> (client_id </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">client_id</span><span class="si">!r}</span><span class="s2">)&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">933</span>         <span class="p">)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -1204,8 +1202,41 @@ memory usage: 43.0 KB
 </div>
 </div>
 </section>
+<section id="pembentukan-dataset-supervised-learning-lag-2-hari">
+<h2>16. Pembentukan Dataset Supervised Learning (Lag 2 Hari)<a class="headerlink" href="#pembentukan-dataset-supervised-learning-lag-2-hari" title="Permalink to this heading">#</a></h2>
+<p>Data time series diubah menjadi bentuk supervised learning dengan menggunakan 2 hari sebelumnya sebagai fitur untuk memprediksi nilai NO₂ pada hari berikutnya.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">supervised_df2</span> <span class="o">=</span> <span class="n">create_supervised</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;NO2_scaled&#39;</span><span class="p">],</span> <span class="n">n_lag</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">supervised_df</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">supervised_df</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>      NO2(t-4)  NO2(t-3)  NO2(t-2)  NO2(t-1)    NO2(t)
+4     0.598121  0.682902  0.711566  0.717760  0.723954
+5     0.682902  0.711566  0.717760  0.723954  0.730148
+6     0.711566  0.717760  0.723954  0.730148  0.570919
+7     0.717760  0.723954  0.730148  0.570919  0.678604
+8     0.723954  0.730148  0.570919  0.678604  0.701636
+...        ...       ...       ...       ...       ...
+1092  0.460853  0.427837  0.422464  0.407013  0.133560
+1093  0.427837  0.422464  0.407013  0.133560  0.429283
+1094  0.422464  0.407013  0.133560  0.429283  0.555287
+1095  0.407013  0.133560  0.429283  0.555287  0.510633
+1096  0.133560  0.429283  0.555287  0.510633  0.510633
+
+[1093 rows x 5 columns]
+(1093, 5)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 <section id="pembentukan-dataset-supervised-learning-lag-4-hari">
-<h2>16. Pembentukan Dataset Supervised Learning (Lag 4 Hari)<a class="headerlink" href="#pembentukan-dataset-supervised-learning-lag-4-hari" title="Permalink to this heading">#</a></h2>
+<h2>17. Pembentukan Dataset Supervised Learning (Lag 4 Hari)<a class="headerlink" href="#pembentukan-dataset-supervised-learning-lag-4-hari" title="Permalink to this heading">#</a></h2>
 <p>Data time series diubah menjadi bentuk supervised learning dengan menggunakan 4 hari sebelumnya sebagai fitur untuk memprediksi nilai NO₂ pada hari berikutnya.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1238,7 +1269,7 @@ memory usage: 43.0 KB
 </div>
 </section>
 <section id="pembentukan-dataset-supervised-learning-lag-10-hari">
-<h2>17. Pembentukan Dataset Supervised Learning (Lag 10 Hari)<a class="headerlink" href="#pembentukan-dataset-supervised-learning-lag-10-hari" title="Permalink to this heading">#</a></h2>
+<h2>18. Pembentukan Dataset Supervised Learning (Lag 10 Hari)<a class="headerlink" href="#pembentukan-dataset-supervised-learning-lag-10-hari" title="Permalink to this heading">#</a></h2>
 <p>Pada skenario kedua digunakan 10 hari sebelumnya sebagai fitur prediksi. Tujuannya untuk mengetahui pengaruh penambahan jumlah data historis terhadap performa model.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1284,7 +1315,7 @@ memory usage: 43.0 KB
 </div>
 </section>
 <section id="pembentukan-dataset-supervised-learning-lag-30-hari">
-<h2>18. Pembentukan Dataset Supervised Learning (Lag 30 Hari)<a class="headerlink" href="#pembentukan-dataset-supervised-learning-lag-30-hari" title="Permalink to this heading">#</a></h2>
+<h2>19. Pembentukan Dataset Supervised Learning (Lag 30 Hari)<a class="headerlink" href="#pembentukan-dataset-supervised-learning-lag-30-hari" title="Permalink to this heading">#</a></h2>
 <p>Pada skenario ketiga digunakan 30 hari sebelumnya sebagai fitur prediksi. Skenario ini digunakan untuk membandingkan performa model dengan jumlah lag yang lebih besar.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1325,7 +1356,7 @@ memory usage: 43.0 KB
 </div>
 </section>
 <section id="modeling-dan-evaluasi-menggunakan-knn-regression">
-<h2>19. Modeling dan Evaluasi Menggunakan KNN Regression<a class="headerlink" href="#modeling-dan-evaluasi-menggunakan-knn-regression" title="Permalink to this heading">#</a></h2>
+<h2>20. Modeling dan Evaluasi Menggunakan KNN Regression<a class="headerlink" href="#modeling-dan-evaluasi-menggunakan-knn-regression" title="Permalink to this heading">#</a></h2>
 <p>Tahap ini merupakan proses utama peramalan menggunakan metode K-Nearest Neighbor (KNN) Regression. Data dibagi menjadi data training dan testing dengan rasio 80:20 tanpa proses pengacakan karena data berbentuk time series.</p>
 <p>Evaluasi model dilakukan menggunakan tiga metrik yaitu:</p>
 <ul class="simple">
@@ -1372,6 +1403,7 @@ memory usage: 43.0 KB
 
     <span class="k">return</span> <span class="n">knn</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span>
 
+<span class="n">knn_2</span><span class="p">,</span> <span class="n">y_test_2</span><span class="p">,</span> <span class="n">y_pred_2</span> <span class="o">=</span> <span class="n">train_knn</span><span class="p">(</span><span class="n">supervised_df2</span><span class="p">,</span><span class="s2">&quot;KNN - 2 Hari Sebelumnya&quot;</span><span class="p">)</span>
 <span class="n">knn_4</span><span class="p">,</span> <span class="n">y_test_4</span><span class="p">,</span> <span class="n">y_pred_4</span> <span class="o">=</span> <span class="n">train_knn</span><span class="p">(</span><span class="n">supervised_df4</span><span class="p">,</span> <span class="s2">&quot;KNN - 4 Hari Sebelumnya&quot;</span><span class="p">)</span>
 <span class="n">knn_10</span><span class="p">,</span> <span class="n">y_test_10</span><span class="p">,</span> <span class="n">y_pred_10</span> <span class="o">=</span> <span class="n">train_knn</span><span class="p">(</span><span class="n">supervised_df10</span><span class="p">,</span> <span class="s2">&quot;KNN - 10 Hari Sebelumnya&quot;</span><span class="p">)</span>
 <span class="n">knn_30</span><span class="p">,</span> <span class="n">y_test_30</span><span class="p">,</span> <span class="n">y_pred_30</span> <span class="o">=</span> <span class="n">train_knn</span><span class="p">(</span><span class="n">supervised_df30</span><span class="p">,</span> <span class="s2">&quot;KNN - 30 Hari Sebelumnya&quot;</span><span class="p">)</span>
@@ -1379,7 +1411,13 @@ memory usage: 43.0 KB
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== KNN - 4 Hari Sebelumnya ===
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=== KNN - 2 Hari Sebelumnya ===
+Train Size: 876 — Test Size: 219
+RMSE: 0.083858
+R² Score: 0.7112
+MAPE: 80.9587%
+
+=== KNN - 4 Hari Sebelumnya ===
 Train Size: 874 — Test Size: 219
 RMSE: 0.080522
 R² Score: 0.7337
@@ -1401,8 +1439,32 @@ MAPE: 17.5753%
 </div>
 </div>
 </section>
+<section id="visualisasi-hasil-prediksi-lag-2-hari">
+<h2>21. Visualisasi Hasil Prediksi Lag 2 Hari<a class="headerlink" href="#visualisasi-hasil-prediksi-lag-2-hari" title="Permalink to this heading">#</a></h2>
+<p>Grafik berikut menampilkan perbandingan antara nilai aktual dan nilai hasil prediksi menggunakan model KNN Regression dengan lag 2 hari sebelumnya.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_test_2</span><span class="p">)),</span> <span class="n">y_test_2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Actual&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y_pred_2</span><span class="p">)),</span> <span class="n">y_pred_2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Predicted&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;KNN Regression - 2 Hari Sebelumnya&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Sample Index&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;NO2 Value&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/edd5199465faf78489f9f7f6624f09e2c50c7818023a13d7e6301bddb885a116.png" src="_images/edd5199465faf78489f9f7f6624f09e2c50c7818023a13d7e6301bddb885a116.png" />
+</div>
+</div>
+</section>
 <section id="visualisasi-hasil-prediksi-lag-4-hari">
-<h2>20. Visualisasi Hasil Prediksi Lag 4 Hari<a class="headerlink" href="#visualisasi-hasil-prediksi-lag-4-hari" title="Permalink to this heading">#</a></h2>
+<h2>22. Visualisasi Hasil Prediksi Lag 4 Hari<a class="headerlink" href="#visualisasi-hasil-prediksi-lag-4-hari" title="Permalink to this heading">#</a></h2>
 <p>Grafik berikut menampilkan perbandingan antara nilai aktual dan nilai hasil prediksi menggunakan model KNN Regression dengan lag 4 hari sebelumnya.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1425,7 +1487,7 @@ MAPE: 17.5753%
 </div>
 </section>
 <section id="visualisasi-hasil-prediksi-lag-10-hari">
-<h2>21. Visualisasi Hasil Prediksi Lag 10 Hari<a class="headerlink" href="#visualisasi-hasil-prediksi-lag-10-hari" title="Permalink to this heading">#</a></h2>
+<h2>23. Visualisasi Hasil Prediksi Lag 10 Hari<a class="headerlink" href="#visualisasi-hasil-prediksi-lag-10-hari" title="Permalink to this heading">#</a></h2>
 <p>Grafik berikut menampilkan hasil prediksi menggunakan 10 hari sebelumnya sebagai fitur masukan. Perbandingan dilakukan untuk melihat kemampuan model dalam mengikuti pola data aktual.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1446,7 +1508,7 @@ MAPE: 17.5753%
 </div>
 </section>
 <section id="visualisasi-hasil-prediksi-lag-30-hari">
-<h2>22. Visualisasi Hasil Prediksi Lag 30 Hari<a class="headerlink" href="#visualisasi-hasil-prediksi-lag-30-hari" title="Permalink to this heading">#</a></h2>
+<h2>24. Visualisasi Hasil Prediksi Lag 30 Hari<a class="headerlink" href="#visualisasi-hasil-prediksi-lag-30-hari" title="Permalink to this heading">#</a></h2>
 <p>Grafik berikut menunjukkan hasil prediksi menggunakan 30 hari sebelumnya sebagai fitur masukan. Hasil ini dibandingkan dengan skenario sebelumnya untuk menentukan jumlah lag yang menghasilkan performa terbaik.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1463,6 +1525,77 @@ MAPE: 17.5753%
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/5b5b03a516767f58d4e9437a3da502fee3398f85d45c9241252022fa286c34b5.png" src="_images/5b5b03a516767f58d4e9437a3da502fee3398f85d45c9241252022fa286c34b5.png" />
+</div>
+</div>
+</section>
+<section id="prediksi-nilai-no2-untuk-hari-berikutnya">
+<h2>### 25. Prediksi Nilai NO₂ untuk Hari Berikutnya<a class="headerlink" href="#prediksi-nilai-no2-untuk-hari-berikutnya" title="Permalink to this heading">#</a></h2>
+<p>Setelah model KNN Regression selesai dilatih, langkah selanjutnya adalah melakukan prediksi nilai NO₂ untuk hari berikutnya. Prediksi dilakukan dengan menggunakan beberapa nilai NO₂ terakhir sebagai data masukan (input) sesuai dengan jumlah lag yang digunakan pada model.</p>
+<p>Pada model lag 2 hari, sistem mengambil dua nilai NO₂ terakhir dari dataset yang telah dinormalisasi. Nilai tersebut kemudian dibentuk menjadi satu baris data (feature vector) yang sesuai dengan format input model KNN. Selanjutnya model melakukan prediksi terhadap nilai NO₂ pada hari berikutnya.</p>
+<p>Karena hasil prediksi masih berada dalam bentuk data yang telah dinormalisasi (skala 0–1), maka dilakukan proses inverse transform menggunakan MinMaxScaler untuk mengembalikan nilai prediksi ke satuan NO₂ asli. Hasil akhir menunjukkan estimasi kadar NO₂ untuk satu hari setelah data terakhir yang tersedia.</p>
+<p>Hasil prediksi menggunakan model lag 2 hari adalah sebesar <strong>4.0233 × 10⁻⁵ mol/m²</strong>.</p>
+<p>Selanjutnya dilakukan prediksi menggunakan model lag 4 hari. Pada model ini digunakan empat nilai NO₂ terakhir sebagai fitur masukan. Proses prediksi dilakukan dengan langkah yang sama, yaitu membentuk data input, melakukan prediksi menggunakan model KNN, dan mengembalikan hasil prediksi ke skala asli menggunakan inverse transform.</p>
+<p>Hasil prediksi menggunakan model lag 4 hari adalah sebesar <strong>3.8827 × 10⁻⁵ mol/m²</strong>.</p>
+<p>Perbedaan hasil prediksi antara lag 2 dan lag 4 terjadi karena jumlah data historis yang digunakan sebagai acuan model berbeda. Model dengan performa evaluasi terbaik (RMSE lebih kecil dan R² lebih tinggi) dapat dipilih sebagai model utama untuk melakukan prediksi nilai NO₂ pada hari berikutnya.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">last_data</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;NO2_scaled&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_next</span> <span class="o">=</span> <span class="n">last_data</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred_next_scaled</span> <span class="o">=</span> <span class="n">knn_2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_next</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pred_next</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span>
+    <span class="n">pred_next_scaled</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prediksi NO2 Besok:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pred_next</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prediksi NO2 Besok:
+4.0233187800000004e-05
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">last_data</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;NO2_scaled&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+
+<span class="n">X_next</span> <span class="o">=</span> <span class="n">last_data</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">pred_next_scaled</span> <span class="o">=</span> <span class="n">knn_4</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_next</span><span class="p">)</span>
+
+<span class="n">pred_next</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span>
+    <span class="n">pred_next_scaled</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Prediksi NO2 Besok =&quot;</span><span class="p">,</span> <span class="n">pred_next</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prediksi NO2 Besok = 3.88274098e-05
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -1545,13 +1678,16 @@ MAPE: 17.5753%
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-data-setelah-interpolasi">13. Visualisasi Data Setelah Interpolasi</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analisis-korelasi-data-time-series">14. Analisis Korelasi Data Time Series</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normalisasi-data-menggunakan-min-max-scaling">15. Normalisasi Data Menggunakan Min-Max Scaling</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembentukan-dataset-supervised-learning-lag-4-hari">16. Pembentukan Dataset Supervised Learning (Lag 4 Hari)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembentukan-dataset-supervised-learning-lag-10-hari">17. Pembentukan Dataset Supervised Learning (Lag 10 Hari)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembentukan-dataset-supervised-learning-lag-30-hari">18. Pembentukan Dataset Supervised Learning (Lag 30 Hari)</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-dan-evaluasi-menggunakan-knn-regression">19. Modeling dan Evaluasi Menggunakan KNN Regression</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-hasil-prediksi-lag-4-hari">20. Visualisasi Hasil Prediksi Lag 4 Hari</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-hasil-prediksi-lag-10-hari">21. Visualisasi Hasil Prediksi Lag 10 Hari</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-hasil-prediksi-lag-30-hari">22. Visualisasi Hasil Prediksi Lag 30 Hari</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembentukan-dataset-supervised-learning-lag-2-hari">16. Pembentukan Dataset Supervised Learning (Lag 2 Hari)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembentukan-dataset-supervised-learning-lag-4-hari">17. Pembentukan Dataset Supervised Learning (Lag 4 Hari)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembentukan-dataset-supervised-learning-lag-10-hari">18. Pembentukan Dataset Supervised Learning (Lag 10 Hari)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pembentukan-dataset-supervised-learning-lag-30-hari">19. Pembentukan Dataset Supervised Learning (Lag 30 Hari)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modeling-dan-evaluasi-menggunakan-knn-regression">20. Modeling dan Evaluasi Menggunakan KNN Regression</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-hasil-prediksi-lag-2-hari">21. Visualisasi Hasil Prediksi Lag 2 Hari</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-hasil-prediksi-lag-4-hari">22. Visualisasi Hasil Prediksi Lag 4 Hari</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-hasil-prediksi-lag-10-hari">23. Visualisasi Hasil Prediksi Lag 10 Hari</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualisasi-hasil-prediksi-lag-30-hari">24. Visualisasi Hasil Prediksi Lag 30 Hari</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prediksi-nilai-no2-untuk-hari-berikutnya">### 25. Prediksi Nilai NO₂ untuk Hari Berikutnya</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
 </ul>
   </nav></div>
