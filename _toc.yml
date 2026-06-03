@@ -16,3 +16,4 @@ chapters:
 - file: decision_tree
 - file: random_forest
 - file: regresi_linier
+- file: peramalan
