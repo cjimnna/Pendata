@@ -188,7 +188,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="random_forest.html"><strong>Implementasi Algoritma Random Forest pada Dataset Iris</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="regresi_linier.html"><strong>Analisis Regresi Linier</strong></a></li>
 <li class="toctree-l1"><a class="reference internal" href="peramalan.html"><strong>Peramalan Kadar NO2 di Daerah Jombang</strong></a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">ANALISIS EXPLAINABILITY TIME SERIES FORECASTING</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#"><strong>ANALISIS EXPLAINABILITY TIME SERIES FORECASTING</strong></a></li>
 </ul>
 
     </div>
@@ -390,6 +390,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-output-target">B. Output (Target)</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konsep-lag-dalam-time-series-forecasting">3. Konsep Lag dalam Time Series Forecasting</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alur-proses-analisis-kasus">4. Alur Proses Analisis Kasus</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-1-pra-pemrosesan-pemisahan-data">Tahap 1: Pra-pemrosesan &amp; Pemisahan Data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-2-inisialisasi-dan-pelatihan-model">Tahap 2: Inisialisasi dan Pelatihan Model</a></li>
@@ -398,6 +399,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-5-analisis-hubungan-marjinal-shap-dependence-plot">Tahap 5: Analisis Hubungan Marjinal (SHAP Dependence Plot)</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kode-program-utuh">5. Kode Program Utuh</a></li>
 </ul>
             </nav>
         </div>
@@ -409,8 +411,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="analisis-explainability-time-series-forecasting">
-<h1>ANALISIS EXPLAINABILITY TIME SERIES FORECASTING<a class="headerlink" href="#analisis-explainability-time-series-forecasting" title="Permalink to this heading">#</a></h1>
+  <section id="analisis-explainability-time-series-forecasting">
+<h1><strong>ANALISIS EXPLAINABILITY TIME SERIES FORECASTING</strong><a class="headerlink" href="#analisis-explainability-time-series-forecasting" title="Permalink to this heading">#</a></h1>
 <section id="topik-analisis-prediksi">
 <h2>1. Topik Analisis Prediksi<a class="headerlink" href="#topik-analisis-prediksi" title="Permalink to this heading">#</a></h2>
 <p>Analisis prediksi dalam studi kasus ini menggunakan dataset vic_electricity dari pustaka Skforecast (Versi 0.15.1). Fokus utama dari analisis ini adalah meramal total permintaan energi listrik harian (Daily Electricity Demand) di wilayah Victoria, Australia.</p>
@@ -435,15 +437,17 @@ eksternal berupa rata-rata suhu udara harian pada hari yang bersangkutan.</p></l
 <ul class="simple">
 <li><p>Demand (<span class="math notranslate nohighlight">\(t+1\)</span>): Total nilai permintaan energi listrik harian pada langkah waktu berikutnya yang menjadi target prediksi model.</p></li>
 </ul>
-<p>##3. Konsep Lag dalam Time Series Forecasting
-Dalam pemodelan deret waktu, Lag adalah representasi nilai variabel target pada langkah waktu sebelumnya (kemunduran waktu). Karena pemrosesan data di-resample ke tingkat harian (‘D’), maka definisinya adalah:</p>
+</section>
+</section>
+<section id="konsep-lag-dalam-time-series-forecasting">
+<h2>3. Konsep Lag dalam Time Series Forecasting<a class="headerlink" href="#konsep-lag-dalam-time-series-forecasting" title="Permalink to this heading">#</a></h2>
+<p>Dalam pemodelan deret waktu, Lag adalah representasi nilai variabel target pada langkah waktu sebelumnya (kemunduran waktu). Karena pemrosesan data di-resample ke tingkat harian (‘D’), maka definisinya adalah:</p>
 <ul class="simple">
 <li><p>Lag 1: Total penggunaan listrik 1 hari yang lalu.</p></li>
 <li><p>Lag 2: Total penggunaan listrik 2 hari yang lalu.</p></li>
 <li><p>Lag 7: Total penggunaan listrik 7 hari yang lalu (pola mingguan pada hari yang sama).</p></li>
 </ul>
 <p>Analogi: Jika kita ingin memprediksi omset warung pada hari ini, salah satu prediktor paling kuat adalah mengetahui berapa omset warung tersebut kemarin (Lag 1) dan bagaimana tren omset pada hari yang sama di minggu lalu (Lag 7). Nilai masa lalu inilah yang menuntun arah prediksi masa depan.</p>
-</section>
 </section>
 <section id="alur-proses-analisis-kasus">
 <h2>4. Alur Proses Analisis Kasus<a class="headerlink" href="#alur-proses-analisis-kasus" title="Permalink to this heading">#</a></h2>
@@ -478,8 +482,11 @@ Dalam pemodelan deret waktu, Lag adalah representasi nilai variabel target pada 
 <h3>Tahap 5: Analisis Hubungan Marjinal (SHAP Dependence Plot)<a class="headerlink" href="#tahap-5-analisis-hubungan-marjinal-shap-dependence-plot" title="Permalink to this heading">#</a></h3>
 <p>Plot ketergantungan di bawah ini menunjukkan hubungan marjinal antara output model dan fitur target (Temperature).</p>
 <p>Kita dapat melihat pola “hockey stick” atau kurva berbentuk J yang sangat menarik: dampak suhu terhadap permintaan listrik meningkat secara dramatis dan non-linear pada suhu tinggi (di atas ~25°C), mencerminkan penggunaan AC yang masif. Mewarnai titik berdasarkan lag_1 (permintaan sehari sebelumnya) menunjukkan interaksi tambahan: pada suhu tinggi, permintaan listrik sehari sebelumnya yang tinggi (warna merah) sering dikaitkan dengan nilai SHAP yang lebih tinggi, yang memperkuat lonjakan beban akibat cuaca panas. Dampak suhu rendah (di bawah ~15°C) juga positif tetapi lebih bervariasi.</p>
-<p>##5. Kode Program Utuh
-Berikut adalah kode Python final yang digunakan untuk mereproduksi seluruh analisis di atas:</p>
+</section>
+</section>
+<section id="kode-program-utuh">
+<h2>5. Kode Program Utuh<a class="headerlink" href="#kode-program-utuh" title="Permalink to this heading">#</a></h2>
+<p>Berikut adalah kode Python final yang digunakan untuk mereproduksi seluruh analisis di atas:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">pip</span> install skforecast
@@ -490,32 +497,29 @@ Berikut adalah kode Python final yang digunakan untuk mereproduksi seluruh anali
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>^C
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting skforecast
-  Downloading skforecast-0.22.0-py3-none-any.whl.metadata (20 kB)
+  Using cached skforecast-0.22.0-py3-none-any.whl.metadata (20 kB)
 Requirement already satisfied: numpy&gt;=1.26 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from skforecast) (2.4.2)
 Requirement already satisfied: pandas&lt;3.0,&gt;=2.1 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from skforecast) (2.3.3)
 Collecting tqdm&gt;=4.66 (from skforecast)
-  Downloading tqdm-4.68.2-py3-none-any.whl.metadata (58 kB)
+  Using cached tqdm-4.68.2-py3-none-any.whl.metadata (58 kB)
 Collecting scikit-learn&gt;=1.4 (from skforecast)
-  Downloading scikit_learn-1.9.0-cp312-cp312-win_amd64.whl.metadata (11 kB)
+  Using cached scikit_learn-1.9.0-cp312-cp312-win_amd64.whl.metadata (11 kB)
 Requirement already satisfied: scipy&gt;=1.12 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from skforecast) (1.17.1)
 Collecting optuna&gt;=4.0 (from skforecast)
-  Downloading optuna-4.9.0-py3-none-any.whl.metadata (15 kB)
+  Using cached optuna-4.9.0-py3-none-any.whl.metadata (15 kB)
 Collecting joblib&gt;=1.3 (from skforecast)
-  Downloading joblib-1.5.3-py3-none-any.whl.metadata (5.5 kB)
+  Using cached joblib-1.5.3-py3-none-any.whl.metadata (5.5 kB)
 Collecting numba&gt;=0.59 (from skforecast)
-  Downloading numba-0.65.1-cp312-cp312-win_amd64.whl.metadata (3.0 kB)
+  Using cached numba-0.65.1-cp312-cp312-win_amd64.whl.metadata (3.0 kB)
 Collecting rich&gt;=13.9 (from skforecast)
-  Downloading rich-15.0.0-py3-none-any.whl.metadata (18 kB)
+  Using cached rich-15.0.0-py3-none-any.whl.metadata (18 kB)
 Collecting llvmlite&lt;0.48,&gt;=0.47.0dev0 (from numba&gt;=0.59-&gt;skforecast)
-  Downloading llvmlite-0.47.0-cp312-cp312-win_amd64.whl.metadata (5.1 kB)
+  Using cached llvmlite-0.47.0-cp312-cp312-win_amd64.whl.metadata (5.1 kB)
 Collecting alembic&gt;=1.5.0 (from optuna&gt;=4.0-&gt;skforecast)
-  Downloading alembic-1.18.4-py3-none-any.whl.metadata (7.2 kB)
+  Using cached alembic-1.18.4-py3-none-any.whl.metadata (7.2 kB)
 Collecting colorlog (from optuna&gt;=4.0-&gt;skforecast)
-  Downloading colorlog-6.10.1-py3-none-any.whl.metadata (11 kB)
+  Using cached colorlog-6.10.1-py3-none-any.whl.metadata (11 kB)
 Requirement already satisfied: packaging&gt;=20.0 in c:\users\dini\appdata\roaming\python\python312\site-packages (from optuna&gt;=4.0-&gt;skforecast) (24.1)
 Requirement already satisfied: sqlalchemy&gt;=1.4.2 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from optuna&gt;=4.0-&gt;skforecast) (2.0.46)
 Requirement already satisfied: PyYAML in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from optuna&gt;=4.0-&gt;skforecast) (6.0.2)
@@ -525,85 +529,142 @@ Requirement already satisfied: tzdata&gt;=2022.7 in c:\users\dini\appdata\local\
 Requirement already satisfied: markdown-it-py&gt;=2.2.0 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from rich&gt;=13.9-&gt;skforecast) (2.2.0)
 Requirement already satisfied: pygments&lt;3.0.0,&gt;=2.13.0 in c:\users\dini\appdata\roaming\python\python312\site-packages (from rich&gt;=13.9-&gt;skforecast) (2.18.0)
 Collecting narwhals&gt;=2.0.1 (from scikit-learn&gt;=1.4-&gt;skforecast)
-  Downloading narwhals-2.22.1-py3-none-any.whl.metadata (15 kB)
+  Using cached narwhals-2.22.1-py3-none-any.whl.metadata (15 kB)
 Collecting threadpoolctl&gt;=3.5.0 (from scikit-learn&gt;=1.4-&gt;skforecast)
-  Downloading threadpoolctl-3.6.0-py3-none-any.whl.metadata (13 kB)
+  Using cached threadpoolctl-3.6.0-py3-none-any.whl.metadata (13 kB)
 Requirement already satisfied: colorama in c:\users\dini\appdata\roaming\python\python312\site-packages (from tqdm&gt;=4.66-&gt;skforecast) (0.4.6)
 Collecting Mako (from alembic&gt;=1.5.0-&gt;optuna&gt;=4.0-&gt;skforecast)
-  Downloading mako-1.3.12-py3-none-any.whl.metadata (2.9 kB)
+  Using cached mako-1.3.12-py3-none-any.whl.metadata (2.9 kB)
 Requirement already satisfied: typing-extensions&gt;=4.12 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from alembic&gt;=1.5.0-&gt;optuna&gt;=4.0-&gt;skforecast) (4.12.2)
 Requirement already satisfied: mdurl~=0.1 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from markdown-it-py&gt;=2.2.0-&gt;rich&gt;=13.9-&gt;skforecast) (0.1.2)
 Requirement already satisfied: six&gt;=1.5 in c:\users\dini\appdata\roaming\python\python312\site-packages (from python-dateutil&gt;=2.8.2-&gt;pandas&lt;3.0,&gt;=2.1-&gt;skforecast) (1.16.0)
 Requirement already satisfied: greenlet&gt;=1 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from sqlalchemy&gt;=1.4.2-&gt;optuna&gt;=4.0-&gt;skforecast) (3.3.1)
 Requirement already satisfied: MarkupSafe&gt;=0.9.2 in c:\users\dini\appdata\local\programs\python\python312\lib\site-packages (from Mako-&gt;alembic&gt;=1.5.0-&gt;optuna&gt;=4.0-&gt;skforecast) (3.0.2)
-Downloading skforecast-0.22.0-py3-none-any.whl (467 kB)
-Downloading joblib-1.5.3-py3-none-any.whl (309 kB)
-Downloading numba-0.65.1-cp312-cp312-win_amd64.whl (2.8 MB)
-   ---------------------------------------- 0.0/2.8 MB ? eta -:--:--
-   ---------------------------------------- 0.0/2.8 MB ? eta -:--:--
-   --- ------------------------------------ 0.3/2.8 MB ? eta -:--:--
-   --- ------------------------------------ 0.3/2.8 MB ? eta -:--:--
-   --- ------------------------------------ 0.3/2.8 MB ? eta -:--:--
-   ------- -------------------------------- 0.5/2.8 MB 409.0 kB/s eta 0:00:06
-   ------- -------------------------------- 0.5/2.8 MB 409.0 kB/s eta 0:00:06
-   ------- -------------------------------- 0.5/2.8 MB 409.0 kB/s eta 0:00:06
-   ------- -------------------------------- 0.5/2.8 MB 409.0 kB/s eta 0:00:06
-   ------- -------------------------------- 0.5/2.8 MB 409.0 kB/s eta 0:00:06
-   ------- -------------------------------- 0.5/2.8 MB 409.0 kB/s eta 0:00:06
-   ------- -------------------------------- 0.5/2.8 MB 409.0 kB/s eta 0:00:06
-   ------- -------------------------------- 0.5/2.8 MB 409.0 kB/s eta 0:00:06
-   ------- -------------------------------- 0.5/2.8 MB 409.0 kB/s eta 0:00:06
-   ------- -------------------------------- 0.5/2.8 MB 409.0 kB/s eta 0:00:06
-   ------- -------------------------------- 0.5/2.8 MB 409.0 kB/s eta 0:00:06
-   ------- -------------------------------- 0.5/2.8 MB 409.0 kB/s eta 0:00:06
-   ------- -------------------------------- 0.5/2.8 MB 409.0 kB/s eta 0:00:06
-   ----------- ---------------------------- 0.8/2.8 MB 151.8 kB/s eta 0:00:13
-   ----------- ---------------------------- 0.8/2.8 MB 151.8 kB/s eta 0:00:13
-   ----------- ---------------------------- 0.8/2.8 MB 151.8 kB/s eta 0:00:13
-   ----------- ---------------------------- 0.8/2.8 MB 151.8 kB/s eta 0:00:13
-   --------------- ------------------------ 1.0/2.8 MB 188.5 kB/s eta 0:00:10
-   --------------- ------------------------ 1.0/2.8 MB 188.5 kB/s eta 0:00:10
-   ------------------- -------------------- 1.3/2.8 MB 228.2 kB/s eta 0:00:07
-   ------------------- -------------------- 1.3/2.8 MB 228.2 kB/s eta 0:00:07
-   ------------------- -------------------- 1.3/2.8 MB 228.2 kB/s eta 0:00:07
-   ---------------------- ----------------- 1.6/2.8 MB 251.1 kB/s eta 0:00:05
-   ---------------------- ----------------- 1.6/2.8 MB 251.1 kB/s eta 0:00:05
-   -------------------------- ------------- 1.8/2.8 MB 280.4 kB/s eta 0:00:04
-   -------------------------- ------------- 1.8/2.8 MB 280.4 kB/s eta 0:00:04
-   ------------------------------ --------- 2.1/2.8 MB 303.5 kB/s eta 0:00:03
-   ---------------------------------- ----- 2.4/2.8 MB 329.8 kB/s eta 0:00:02
-   ---------------------------------- ----- 2.4/2.8 MB 329.8 kB/s eta 0:00:02
-   ---------------------------------- ----- 2.4/2.8 MB 329.8 kB/s eta 0:00:02
-   -------------------------------------- - 2.6/2.8 MB 337.8 kB/s eta 0:00:01
-   ---------------------------------------- 2.8/2.8 MB 348.5 kB/s eta 0:00:00
-Downloading optuna-4.9.0-py3-none-any.whl (425 kB)
-Downloading rich-15.0.0-py3-none-any.whl (310 kB)
+Using cached skforecast-0.22.0-py3-none-any.whl (467 kB)
+Using cached joblib-1.5.3-py3-none-any.whl (309 kB)
+Using cached numba-0.65.1-cp312-cp312-win_amd64.whl (2.8 MB)
+Using cached optuna-4.9.0-py3-none-any.whl (425 kB)
+Using cached rich-15.0.0-py3-none-any.whl (310 kB)
 Downloading scikit_learn-1.9.0-cp312-cp312-win_amd64.whl (8.2 MB)
    ---------------------------------------- 0.0/8.2 MB ? eta -:--:--
    ---------------------------------------- 0.0/8.2 MB ? eta -:--:--
-   ---------------------------------------- 0.0/8.2 MB ? eta -:--:--
-   ---------------------------------------- 0.0/8.2 MB ? eta -:--:--
    - -------------------------------------- 0.3/8.2 MB ? eta -:--:--
-   - -------------------------------------- 0.3/8.2 MB ? eta -:--:--
-   - -------------------------------------- 0.3/8.2 MB ? eta -:--:--
-   - -------------------------------------- 0.3/8.2 MB ? eta -:--:--
-   -- ------------------------------------- 0.5/8.2 MB 311.0 kB/s eta 0:00:25
-   -- ------------------------------------- 0.5/8.2 MB 311.0 kB/s eta 0:00:25
-   -- ------------------------------------- 0.5/8.2 MB 311.0 kB/s eta 0:00:25
-   -- ------------------------------------- 0.5/8.2 MB 311.0 kB/s eta 0:00:25
-   -- ------------------------------------- 0.5/8.2 MB 311.0 kB/s eta 0:00:25
-   -- ------------------------------------- 0.5/8.2 MB 311.0 kB/s eta 0:00:25
-   -- ------------------------------------- 0.5/8.2 MB 311.0 kB/s eta 0:00:25
-   --- ------------------------------------ 0.8/8.2 MB 238.0 kB/s eta 0:00:32
-   --- ------------------------------------ 0.8/8.2 MB 238.0 kB/s eta 0:00:32
-   --- ------------------------------------ 0.8/8.2 MB 238.0 kB/s eta 0:00:32
-   ----- ---------------------------------- 1.0/8.2 MB 269.1 kB/s eta 0:00:27
-   ----- ---------------------------------- 1.0/8.2 MB 269.1 kB/s eta 0:00:27
-   ----- ---------------------------------- 1.0/8.2 MB 269.1 kB/s eta 0:00:27
-   ----- ---------------------------------- 1.0/8.2 MB 269.1 kB/s eta 0:00:27
-   ----- ---------------------------------- 1.0/8.2 MB 269.1 kB/s eta 0:00:27
-   ----- ---------------------------------- 1.0/8.2 MB 269.1 kB/s eta 0:00:27
-   ----- ---------------------------------- 1.0/8.2 MB 269.1 kB/s eta 0:00:27
+   --- ------------------------------------ 0.8/8.2 MB 2.0 MB/s eta 0:00:04
+   ------ --------------------------------- 1.3/8.2 MB 2.3 MB/s eta 0:00:03
+   -------- ------------------------------- 1.8/8.2 MB 2.4 MB/s eta 0:00:03
+   ----------- ---------------------------- 2.4/8.2 MB 2.2 MB/s eta 0:00:03
+   ------------ --------------------------- 2.6/8.2 MB 2.0 MB/s eta 0:00:03
+   -------------- ------------------------- 2.9/8.2 MB 2.0 MB/s eta 0:00:03
+   ---------------- ----------------------- 3.4/8.2 MB 2.0 MB/s eta 0:00:03
+   ----------------- ---------------------- 3.7/8.2 MB 2.0 MB/s eta 0:00:03
+   ------------------- -------------------- 3.9/8.2 MB 2.0 MB/s eta 0:00:03
+   ------------------- -------------------- 3.9/8.2 MB 2.0 MB/s eta 0:00:03
+   --------------------- ------------------ 4.5/8.2 MB 1.8 MB/s eta 0:00:03
+   ------------------------- -------------- 5.2/8.2 MB 1.9 MB/s eta 0:00:02
+   -------------------------- ------------- 5.5/8.2 MB 1.9 MB/s eta 0:00:02
+   ----------------------------- ---------- 6.0/8.2 MB 1.9 MB/s eta 0:00:02
+   ------------------------------ --------- 6.3/8.2 MB 1.9 MB/s eta 0:00:02
+   --------------------------------- ------ 6.8/8.2 MB 1.9 MB/s eta 0:00:01
+   ---------------------------------- ----- 7.1/8.2 MB 1.9 MB/s eta 0:00:01
+   ------------------------------------- -- 7.6/8.2 MB 1.9 MB/s eta 0:00:01
+   ---------------------------------------  8.1/8.2 MB 1.9 MB/s eta 0:00:01
+   ---------------------------------------- 8.2/8.2 MB 1.9 MB/s eta 0:00:00
+Downloading tqdm-4.68.2-py3-none-any.whl (78 kB)
+Downloading alembic-1.18.4-py3-none-any.whl (263 kB)
+Downloading llvmlite-0.47.0-cp312-cp312-win_amd64.whl (38.1 MB)
+   ---------------------------------------- 0.0/38.1 MB ? eta -:--:--
+    --------------------------------------- 0.5/38.1 MB 2.4 MB/s eta 0:00:16
+   - -------------------------------------- 1.0/38.1 MB 3.0 MB/s eta 0:00:13
+   - -------------------------------------- 1.6/38.1 MB 2.9 MB/s eta 0:00:13
+   -- ------------------------------------- 2.1/38.1 MB 2.6 MB/s eta 0:00:14
+   -- ------------------------------------- 2.6/38.1 MB 2.7 MB/s eta 0:00:14
+   --- ------------------------------------ 3.1/38.1 MB 2.7 MB/s eta 0:00:14
+   ---- ----------------------------------- 3.9/38.1 MB 2.7 MB/s eta 0:00:13
+   ---- ----------------------------------- 4.5/38.1 MB 2.7 MB/s eta 0:00:13
+   ----- ---------------------------------- 5.2/38.1 MB 2.8 MB/s eta 0:00:12
+   ------ --------------------------------- 6.0/38.1 MB 2.9 MB/s eta 0:00:12
+   ------ --------------------------------- 6.6/38.1 MB 2.9 MB/s eta 0:00:11
+   ------- -------------------------------- 7.1/38.1 MB 2.9 MB/s eta 0:00:11
+   -------- ------------------------------- 7.9/38.1 MB 2.9 MB/s eta 0:00:11
+   -------- ------------------------------- 8.4/38.1 MB 2.9 MB/s eta 0:00:11
+   --------- ------------------------------ 8.9/38.1 MB 2.9 MB/s eta 0:00:11
+   --------- ------------------------------ 9.4/38.1 MB 2.9 MB/s eta 0:00:10
+   ---------- ----------------------------- 10.0/38.1 MB 2.8 MB/s eta 0:00:10
+   ----------- ---------------------------- 10.7/38.1 MB 2.9 MB/s eta 0:00:10
+   ----------- ---------------------------- 11.3/38.1 MB 2.9 MB/s eta 0:00:10
+   ------------ --------------------------- 11.8/38.1 MB 2.9 MB/s eta 0:00:10
+   ------------- -------------------------- 12.6/38.1 MB 2.9 MB/s eta 0:00:09
+   ------------- -------------------------- 12.8/38.1 MB 2.9 MB/s eta 0:00:09
+   -------------- ------------------------- 13.6/38.1 MB 2.9 MB/s eta 0:00:09
+   -------------- ------------------------- 13.9/38.1 MB 2.8 MB/s eta 0:00:09
+   --------------- ------------------------ 14.4/38.1 MB 2.8 MB/s eta 0:00:09
+   --------------- ------------------------ 14.9/38.1 MB 2.8 MB/s eta 0:00:09
+   --------------- ------------------------ 15.2/38.1 MB 2.8 MB/s eta 0:00:09
+   ---------------- ----------------------- 15.7/38.1 MB 2.7 MB/s eta 0:00:09
+   ---------------- ----------------------- 16.0/38.1 MB 2.7 MB/s eta 0:00:09
+   ----------------- ---------------------- 16.5/38.1 MB 2.7 MB/s eta 0:00:09
+   ----------------- ---------------------- 16.8/38.1 MB 2.6 MB/s eta 0:00:09
+   ------------------ --------------------- 17.3/38.1 MB 2.6 MB/s eta 0:00:09
+   ------------------ --------------------- 17.6/38.1 MB 2.6 MB/s eta 0:00:08
+   ------------------ --------------------- 17.8/38.1 MB 2.5 MB/s eta 0:00:08
+   ------------------- -------------------- 18.4/38.1 MB 2.5 MB/s eta 0:00:08
+   ------------------- -------------------- 18.6/38.1 MB 2.5 MB/s eta 0:00:08
+   -------------------- ------------------- 19.1/38.1 MB 2.5 MB/s eta 0:00:08
+   -------------------- ------------------- 19.4/38.1 MB 2.5 MB/s eta 0:00:08
+   -------------------- ------------------- 19.7/38.1 MB 2.5 MB/s eta 0:00:08
+   --------------------- ------------------ 20.2/38.1 MB 2.4 MB/s eta 0:00:08
+   --------------------- ------------------ 20.7/38.1 MB 2.4 MB/s eta 0:00:08
+   --------------------- ------------------ 21.0/38.1 MB 2.4 MB/s eta 0:00:08
+   ---------------------- ----------------- 21.2/38.1 MB 2.4 MB/s eta 0:00:08
+   ---------------------- ----------------- 21.8/38.1 MB 2.4 MB/s eta 0:00:07
+   ----------------------- ---------------- 22.3/38.1 MB 2.4 MB/s eta 0:00:07
+   ----------------------- ---------------- 22.8/38.1 MB 2.4 MB/s eta 0:00:07
+   ------------------------ --------------- 23.1/38.1 MB 2.4 MB/s eta 0:00:07
+   ------------------------ --------------- 23.6/38.1 MB 2.4 MB/s eta 0:00:07
+   ------------------------- -------------- 23.9/38.1 MB 2.4 MB/s eta 0:00:07
+   ------------------------- -------------- 24.1/38.1 MB 2.4 MB/s eta 0:00:06
+   ------------------------- -------------- 24.6/38.1 MB 2.3 MB/s eta 0:00:06
+   -------------------------- ------------- 24.9/38.1 MB 2.3 MB/s eta 0:00:06
+   -------------------------- ------------- 25.4/38.1 MB 2.3 MB/s eta 0:00:06
+   -------------------------- ------------- 25.7/38.1 MB 2.3 MB/s eta 0:00:06
+   --------------------------- ------------ 26.2/38.1 MB 2.3 MB/s eta 0:00:06
+   ---------------------------- ----------- 26.7/38.1 MB 2.3 MB/s eta 0:00:05
+   ---------------------------- ----------- 27.3/38.1 MB 2.3 MB/s eta 0:00:05
+   ---------------------------- ----------- 27.5/38.1 MB 2.3 MB/s eta 0:00:05
+   ----------------------------- ---------- 28.0/38.1 MB 2.3 MB/s eta 0:00:05
+   ----------------------------- ---------- 28.6/38.1 MB 2.3 MB/s eta 0:00:05
+   ------------------------------ --------- 29.1/38.1 MB 2.3 MB/s eta 0:00:04
+   ------------------------------ --------- 29.4/38.1 MB 2.3 MB/s eta 0:00:04
+   ------------------------------- -------- 29.9/38.1 MB 2.3 MB/s eta 0:00:04
+   ------------------------------- -------- 30.1/38.1 MB 2.3 MB/s eta 0:00:04
+   -------------------------------- ------- 30.7/38.1 MB 2.3 MB/s eta 0:00:04
+   -------------------------------- ------- 30.9/38.1 MB 2.3 MB/s eta 0:00:04
+   --------------------------------- ------ 31.7/38.1 MB 2.3 MB/s eta 0:00:03
+   --------------------------------- ------ 32.0/38.1 MB 2.3 MB/s eta 0:00:03
+   ---------------------------------- ----- 32.5/38.1 MB 2.3 MB/s eta 0:00:03
+   ---------------------------------- ----- 32.5/38.1 MB 2.3 MB/s eta 0:00:03
+   ---------------------------------- ----- 33.0/38.1 MB 2.2 MB/s eta 0:00:03
+   ---------------------------------- ----- 33.3/38.1 MB 2.2 MB/s eta 0:00:03
+   ----------------------------------- ---- 33.6/38.1 MB 2.2 MB/s eta 0:00:03
+   ----------------------------------- ---- 33.8/38.1 MB 2.2 MB/s eta 0:00:02
+   ----------------------------------- ---- 34.1/38.1 MB 2.2 MB/s eta 0:00:02
+   ------------------------------------ --- 34.3/38.1 MB 2.2 MB/s eta 0:00:02
+   ------------------------------------ --- 34.9/38.1 MB 2.2 MB/s eta 0:00:02
+   ------------------------------------- -- 35.4/38.1 MB 2.2 MB/s eta 0:00:02
+   ------------------------------------- -- 35.9/38.1 MB 2.2 MB/s eta 0:00:02
+   -------------------------------------- - 36.4/38.1 MB 2.2 MB/s eta 0:00:01
+   -------------------------------------- - 36.7/38.1 MB 2.2 MB/s eta 0:00:01
+   ---------------------------------------  37.2/38.1 MB 2.2 MB/s eta 0:00:01
+   ---------------------------------------  37.2/38.1 MB 2.2 MB/s eta 0:00:01
+   ---------------------------------------  38.0/38.1 MB 2.2 MB/s eta 0:00:01
+   ---------------------------------------- 38.1/38.1 MB 2.2 MB/s eta 0:00:00
+Downloading narwhals-2.22.1-py3-none-any.whl (454 kB)
+Downloading threadpoolctl-3.6.0-py3-none-any.whl (18 kB)
+Downloading colorlog-6.10.1-py3-none-any.whl (11 kB)
+Downloading mako-1.3.12-py3-none-any.whl (78 kB)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Note: you may need to restart the kernel to use updated packages.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: Ignoring invalid distribution ~andas (C:\Users\DINI\AppData\Local\Programs\Python\Python312\Lib\site-packages)
@@ -2118,7 +2179,6 @@ Downloading scikit_learn-1.9.0-cp312-cp312-win_amd64.whl (8.2 MB)
 </div>
 </section>
 </section>
-</section>
 
     <script type="text/x-thebe-config">
     {
@@ -2181,6 +2241,7 @@ Downloading scikit_learn-1.9.0-cp312-cp312-win_amd64.whl (8.2 MB)
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#b-output-target">B. Output (Target)</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#konsep-lag-dalam-time-series-forecasting">3. Konsep Lag dalam Time Series Forecasting</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#alur-proses-analisis-kasus">4. Alur Proses Analisis Kasus</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-1-pra-pemrosesan-pemisahan-data">Tahap 1: Pra-pemrosesan &amp; Pemisahan Data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-2-inisialisasi-dan-pelatihan-model">Tahap 2: Inisialisasi dan Pelatihan Model</a></li>
@@ -2189,6 +2250,7 @@ Downloading scikit_learn-1.9.0-cp312-cp312-win_amd64.whl (8.2 MB)
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tahap-5-analisis-hubungan-marjinal-shap-dependence-plot">Tahap 5: Analisis Hubungan Marjinal (SHAP Dependence Plot)</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kode-program-utuh">5. Kode Program Utuh</a></li>
 </ul>
   </nav></div>
 
