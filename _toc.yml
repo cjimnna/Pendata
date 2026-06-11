@@ -17,3 +17,4 @@ chapters:
 - file: random_forest
 - file: regresi_linier
 - file: peramalan
+- file: time_series_forecasting
